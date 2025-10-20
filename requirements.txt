@@ -1,0 +1,16 @@
+# Core deep learning framework
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Image processing
+Pillow>=9.0.0
+numpy>=1.21.0
+
+# Experiment tracking and ML operations
+mlflow>=2.0.0
+
+# Dataset management
+kagglehub>=0.2.0
+
+# Additional utilities
+typing-extensions>=4.0.0
