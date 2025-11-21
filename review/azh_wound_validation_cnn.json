@@ -1,0 +1,1293 @@
+{
+  "summary": {
+    "dataset": "AZH Wound Dataset (Wounds)",
+    "architecture": "cnn",
+    "threshold": 0.41,
+    "total_images": 213,
+    "true_positives": 137,
+    "false_negatives": 76,
+    "sensitivity_percent": 64.32,
+    "average_confidence": 0.5471,
+    "average_segmentation_pct": 4.51
+  },
+  "results": [
+    {
+      "image": "105_0.jpg",
+      "is_wound": true,
+      "confidence": 0.7578,
+      "segmentation_pct": 0.36
+    },
+    {
+      "image": "106_0.jpg",
+      "is_wound": false,
+      "confidence": 0.317,
+      "segmentation_pct": 8.64
+    },
+    {
+      "image": "111_0.jpg",
+      "is_wound": true,
+      "confidence": 0.6345,
+      "segmentation_pct": 11.05
+    },
+    {
+      "image": "112_0.jpg",
+      "is_wound": true,
+      "confidence": 0.906,
+      "segmentation_pct": 1.62
+    },
+    {
+      "image": "119_0.jpg",
+      "is_wound": true,
+      "confidence": 0.8568,
+      "segmentation_pct": 1.7
+    },
+    {
+      "image": "121_0.jpg",
+      "is_wound": false,
+      "confidence": 0.2978,
+      "segmentation_pct": 1.61
+    },
+    {
+      "image": "126_0.jpg",
+      "is_wound": true,
+      "confidence": 0.8581,
+      "segmentation_pct": 3.76
+    },
+    {
+      "image": "129_0.jpg",
+      "is_wound": false,
+      "confidence": 0.3904,
+      "segmentation_pct": 0.45
+    },
+    {
+      "image": "129_1.jpg",
+      "is_wound": true,
+      "confidence": 0.7678,
+      "segmentation_pct": 6.15
+    },
+    {
+      "image": "129_2.jpg",
+      "is_wound": true,
+      "confidence": 0.543,
+      "segmentation_pct": 4.4
+    },
+    {
+      "image": "129_3.jpg",
+      "is_wound": true,
+      "confidence": 0.8192,
+      "segmentation_pct": 11.2
+    },
+    {
+      "image": "12_0.jpg",
+      "is_wound": true,
+      "confidence": 0.7016,
+      "segmentation_pct": 14.61
+    },
+    {
+      "image": "138_0.jpg",
+      "is_wound": true,
+      "confidence": 0.587,
+      "segmentation_pct": 13.29
+    },
+    {
+      "image": "138_1.jpg",
+      "is_wound": false,
+      "confidence": 0.2974,
+      "segmentation_pct": 3.85
+    },
+    {
+      "image": "142_0.jpg",
+      "is_wound": true,
+      "confidence": 0.6715,
+      "segmentation_pct": 2.0
+    },
+    {
+      "image": "145_0.jpg",
+      "is_wound": false,
+      "confidence": 0.2135,
+      "segmentation_pct": 4.06
+    },
+    {
+      "image": "145_1.jpg",
+      "is_wound": false,
+      "confidence": 0.3427,
+      "segmentation_pct": 3.74
+    },
+    {
+      "image": "14_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9072,
+      "segmentation_pct": 1.94
+    },
+    {
+      "image": "151_0.jpg",
+      "is_wound": true,
+      "confidence": 0.7972,
+      "segmentation_pct": 8.44
+    },
+    {
+      "image": "17_0.jpg",
+      "is_wound": true,
+      "confidence": 0.7672,
+      "segmentation_pct": 8.08
+    },
+    {
+      "image": "19_0.jpg",
+      "is_wound": true,
+      "confidence": 0.8692,
+      "segmentation_pct": 8.87
+    },
+    {
+      "image": "23_0.jpg",
+      "is_wound": true,
+      "confidence": 0.6789,
+      "segmentation_pct": 3.36
+    },
+    {
+      "image": "23_1.jpg",
+      "is_wound": true,
+      "confidence": 0.882,
+      "segmentation_pct": 2.36
+    },
+    {
+      "image": "27_0.jpg",
+      "is_wound": true,
+      "confidence": 0.8993,
+      "segmentation_pct": 10.27
+    },
+    {
+      "image": "2_0.jpg",
+      "is_wound": true,
+      "confidence": 0.5402,
+      "segmentation_pct": 4.87
+    },
+    {
+      "image": "33_0.jpg",
+      "is_wound": true,
+      "confidence": 0.4823,
+      "segmentation_pct": 3.49
+    },
+    {
+      "image": "35_0.jpg",
+      "is_wound": true,
+      "confidence": 0.5441,
+      "segmentation_pct": 8.39
+    },
+    {
+      "image": "39_0.jpg",
+      "is_wound": true,
+      "confidence": 0.6248,
+      "segmentation_pct": 1.3
+    },
+    {
+      "image": "40_0.jpg",
+      "is_wound": true,
+      "confidence": 0.6432,
+      "segmentation_pct": 7.69
+    },
+    {
+      "image": "45_0.jpg",
+      "is_wound": false,
+      "confidence": 0.0981,
+      "segmentation_pct": 1.41
+    },
+    {
+      "image": "45_1.jpg",
+      "is_wound": false,
+      "confidence": 0.2684,
+      "segmentation_pct": 4.81
+    },
+    {
+      "image": "48_0.jpg",
+      "is_wound": true,
+      "confidence": 0.4578,
+      "segmentation_pct": 1.2
+    },
+    {
+      "image": "52_0.jpg",
+      "is_wound": true,
+      "confidence": 0.6923,
+      "segmentation_pct": 8.51
+    },
+    {
+      "image": "56_0.jpg",
+      "is_wound": true,
+      "confidence": 0.6965,
+      "segmentation_pct": 6.58
+    },
+    {
+      "image": "56_1.jpg",
+      "is_wound": false,
+      "confidence": 0.2138,
+      "segmentation_pct": 4.88
+    },
+    {
+      "image": "56_2.jpg",
+      "is_wound": false,
+      "confidence": 0.3979,
+      "segmentation_pct": 1.09
+    },
+    {
+      "image": "61_0.jpg",
+      "is_wound": true,
+      "confidence": 0.5425,
+      "segmentation_pct": 2.71
+    },
+    {
+      "image": "62_0.jpg",
+      "is_wound": true,
+      "confidence": 0.6033,
+      "segmentation_pct": 3.3
+    },
+    {
+      "image": "65_0.jpg",
+      "is_wound": true,
+      "confidence": 0.8799,
+      "segmentation_pct": 12.77
+    },
+    {
+      "image": "65_1.jpg",
+      "is_wound": true,
+      "confidence": 0.9388,
+      "segmentation_pct": 11.75
+    },
+    {
+      "image": "6_0.jpg",
+      "is_wound": true,
+      "confidence": 0.8542,
+      "segmentation_pct": 12.16
+    },
+    {
+      "image": "70_0.jpg",
+      "is_wound": true,
+      "confidence": 0.7777,
+      "segmentation_pct": 13.17
+    },
+    {
+      "image": "70_1.jpg",
+      "is_wound": true,
+      "confidence": 0.808,
+      "segmentation_pct": 9.17
+    },
+    {
+      "image": "82_0.jpg",
+      "is_wound": true,
+      "confidence": 0.5509,
+      "segmentation_pct": 5.02
+    },
+    {
+      "image": "82_1.jpg",
+      "is_wound": true,
+      "confidence": 0.7296,
+      "segmentation_pct": 9.79
+    },
+    {
+      "image": "8_0.jpg",
+      "is_wound": false,
+      "confidence": 0.2592,
+      "segmentation_pct": 3.64
+    },
+    {
+      "image": "100.jpg",
+      "is_wound": false,
+      "confidence": 0.1048,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "76.jpg",
+      "is_wound": false,
+      "confidence": 0.0121,
+      "segmentation_pct": 0.04
+    },
+    {
+      "image": "77.jpg",
+      "is_wound": false,
+      "confidence": 0.002,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "78.jpg",
+      "is_wound": true,
+      "confidence": 0.7983,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "79.jpg",
+      "is_wound": false,
+      "confidence": 0.1012,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "80.jpg",
+      "is_wound": true,
+      "confidence": 0.4309,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "81.jpg",
+      "is_wound": false,
+      "confidence": 0.0813,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "82.jpg",
+      "is_wound": false,
+      "confidence": 0.143,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "83.jpg",
+      "is_wound": false,
+      "confidence": 0.0256,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "84.jpg",
+      "is_wound": false,
+      "confidence": 0.0135,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "85.jpg",
+      "is_wound": false,
+      "confidence": 0.0267,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "86.jpg",
+      "is_wound": false,
+      "confidence": 0.0119,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "87.jpg",
+      "is_wound": false,
+      "confidence": 0.2077,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "88.jpg",
+      "is_wound": false,
+      "confidence": 0.0136,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "89.jpg",
+      "is_wound": false,
+      "confidence": 0.0083,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "90.jpg",
+      "is_wound": false,
+      "confidence": 0.1118,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "91.jpg",
+      "is_wound": false,
+      "confidence": 0.0205,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "92.jpg",
+      "is_wound": false,
+      "confidence": 0.0405,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "93.jpg",
+      "is_wound": false,
+      "confidence": 0.0183,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "94.jpg",
+      "is_wound": false,
+      "confidence": 0.0345,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "95.jpg",
+      "is_wound": false,
+      "confidence": 0.0404,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "96.jpg",
+      "is_wound": true,
+      "confidence": 0.6501,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "97.jpg",
+      "is_wound": false,
+      "confidence": 0.0028,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "98.jpg",
+      "is_wound": false,
+      "confidence": 0.003,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "99.jpg",
+      "is_wound": false,
+      "confidence": 0.0066,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "100_0.jpg",
+      "is_wound": true,
+      "confidence": 0.88,
+      "segmentation_pct": 2.86
+    },
+    {
+      "image": "12_0.jpg",
+      "is_wound": true,
+      "confidence": 0.828,
+      "segmentation_pct": 12.05
+    },
+    {
+      "image": "15_0.jpg",
+      "is_wound": true,
+      "confidence": 0.7756,
+      "segmentation_pct": 18.59
+    },
+    {
+      "image": "18_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9279,
+      "segmentation_pct": 7.73
+    },
+    {
+      "image": "18_1.jpg",
+      "is_wound": true,
+      "confidence": 0.4686,
+      "segmentation_pct": 2.3
+    },
+    {
+      "image": "24_0.jpg",
+      "is_wound": true,
+      "confidence": 0.943,
+      "segmentation_pct": 13.01
+    },
+    {
+      "image": "26_0.jpg",
+      "is_wound": true,
+      "confidence": 0.5212,
+      "segmentation_pct": 3.38
+    },
+    {
+      "image": "26_1.jpg",
+      "is_wound": true,
+      "confidence": 0.7217,
+      "segmentation_pct": 5.84
+    },
+    {
+      "image": "2_0.jpg",
+      "is_wound": false,
+      "confidence": 0.0415,
+      "segmentation_pct": 0.95
+    },
+    {
+      "image": "31_0.jpg",
+      "is_wound": true,
+      "confidence": 0.508,
+      "segmentation_pct": 3.88
+    },
+    {
+      "image": "32_0.jpg",
+      "is_wound": false,
+      "confidence": 0.2359,
+      "segmentation_pct": 0.97
+    },
+    {
+      "image": "49_0.jpg",
+      "is_wound": true,
+      "confidence": 0.84,
+      "segmentation_pct": 9.83
+    },
+    {
+      "image": "49_1.jpg",
+      "is_wound": true,
+      "confidence": 0.9535,
+      "segmentation_pct": 2.68
+    },
+    {
+      "image": "49_2.jpg",
+      "is_wound": true,
+      "confidence": 0.6204,
+      "segmentation_pct": 11.45
+    },
+    {
+      "image": "49_3.jpg",
+      "is_wound": true,
+      "confidence": 0.456,
+      "segmentation_pct": 2.94
+    },
+    {
+      "image": "51_0.jpg",
+      "is_wound": false,
+      "confidence": 0.2294,
+      "segmentation_pct": 1.13
+    },
+    {
+      "image": "53_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9191,
+      "segmentation_pct": 2.93
+    },
+    {
+      "image": "58_0.jpg",
+      "is_wound": false,
+      "confidence": 0.0153,
+      "segmentation_pct": 0.5
+    },
+    {
+      "image": "59_0.jpg",
+      "is_wound": false,
+      "confidence": 0.1062,
+      "segmentation_pct": 1.04
+    },
+    {
+      "image": "59_1.jpg",
+      "is_wound": false,
+      "confidence": 0.0861,
+      "segmentation_pct": 2.12
+    },
+    {
+      "image": "75_0.jpg",
+      "is_wound": false,
+      "confidence": 0.3175,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "75_1.jpg",
+      "is_wound": true,
+      "confidence": 0.9229,
+      "segmentation_pct": 7.86
+    },
+    {
+      "image": "75_2.jpg",
+      "is_wound": true,
+      "confidence": 0.8826,
+      "segmentation_pct": 10.84
+    },
+    {
+      "image": "75_3.jpg",
+      "is_wound": false,
+      "confidence": 0.3102,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "79_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9026,
+      "segmentation_pct": 5.83
+    },
+    {
+      "image": "81_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9241,
+      "segmentation_pct": 8.18
+    },
+    {
+      "image": "81_1.jpg",
+      "is_wound": true,
+      "confidence": 0.8743,
+      "segmentation_pct": 4.28
+    },
+    {
+      "image": "81_2.jpg",
+      "is_wound": true,
+      "confidence": 0.856,
+      "segmentation_pct": 12.87
+    },
+    {
+      "image": "81_3.jpg",
+      "is_wound": true,
+      "confidence": 0.9448,
+      "segmentation_pct": 1.13
+    },
+    {
+      "image": "82_0.jpg",
+      "is_wound": true,
+      "confidence": 0.5549,
+      "segmentation_pct": 9.65
+    },
+    {
+      "image": "82_1.jpg",
+      "is_wound": false,
+      "confidence": 0.2518,
+      "segmentation_pct": 7.05
+    },
+    {
+      "image": "82_2.jpg",
+      "is_wound": true,
+      "confidence": 0.809,
+      "segmentation_pct": 4.54
+    },
+    {
+      "image": "82_3.jpg",
+      "is_wound": true,
+      "confidence": 0.4872,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "90_0.jpg",
+      "is_wound": true,
+      "confidence": 0.5346,
+      "segmentation_pct": 10.18
+    },
+    {
+      "image": "100_0.jpg",
+      "is_wound": true,
+      "confidence": 0.8345,
+      "segmentation_pct": 2.74
+    },
+    {
+      "image": "104_0.jpg",
+      "is_wound": false,
+      "confidence": 0.2524,
+      "segmentation_pct": 2.15
+    },
+    {
+      "image": "111_0.jpg",
+      "is_wound": false,
+      "confidence": 0.0898,
+      "segmentation_pct": 3.16
+    },
+    {
+      "image": "111_1.jpg",
+      "is_wound": false,
+      "confidence": 0.0567,
+      "segmentation_pct": 2.46
+    },
+    {
+      "image": "118_0.jpg",
+      "is_wound": false,
+      "confidence": 0.1641,
+      "segmentation_pct": 6.77
+    },
+    {
+      "image": "121_0.jpg",
+      "is_wound": true,
+      "confidence": 0.7613,
+      "segmentation_pct": 1.68
+    },
+    {
+      "image": "124_0.jpg",
+      "is_wound": false,
+      "confidence": 0.2848,
+      "segmentation_pct": 5.94
+    },
+    {
+      "image": "128_0.jpg",
+      "is_wound": false,
+      "confidence": 0.2328,
+      "segmentation_pct": 15.28
+    },
+    {
+      "image": "14_0.jpg",
+      "is_wound": true,
+      "confidence": 0.4308,
+      "segmentation_pct": 0.36
+    },
+    {
+      "image": "16_0.jpg",
+      "is_wound": false,
+      "confidence": 0.256,
+      "segmentation_pct": 3.36
+    },
+    {
+      "image": "16_1.jpg",
+      "is_wound": false,
+      "confidence": 0.0169,
+      "segmentation_pct": 0.11
+    },
+    {
+      "image": "19_0.jpg",
+      "is_wound": false,
+      "confidence": 0.3133,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "19_1(1).jpg",
+      "is_wound": false,
+      "confidence": 0.119,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "19_1.jpg",
+      "is_wound": false,
+      "confidence": 0.119,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "24_0(1).jpg",
+      "is_wound": true,
+      "confidence": 0.4133,
+      "segmentation_pct": 2.09
+    },
+    {
+      "image": "24_0.jpg",
+      "is_wound": true,
+      "confidence": 0.4133,
+      "segmentation_pct": 2.09
+    },
+    {
+      "image": "24_1(1).jpg",
+      "is_wound": false,
+      "confidence": 0.0176,
+      "segmentation_pct": 1.67
+    },
+    {
+      "image": "24_1.jpg",
+      "is_wound": false,
+      "confidence": 0.0176,
+      "segmentation_pct": 1.67
+    },
+    {
+      "image": "26_0.jpg",
+      "is_wound": true,
+      "confidence": 0.5947,
+      "segmentation_pct": 3.35
+    },
+    {
+      "image": "26_1.jpg",
+      "is_wound": true,
+      "confidence": 0.49,
+      "segmentation_pct": 1.86
+    },
+    {
+      "image": "29_0.jpg",
+      "is_wound": false,
+      "confidence": 0.3452,
+      "segmentation_pct": 4.09
+    },
+    {
+      "image": "29_1.jpg",
+      "is_wound": false,
+      "confidence": 0.2284,
+      "segmentation_pct": 0.09
+    },
+    {
+      "image": "47_0.jpg",
+      "is_wound": false,
+      "confidence": 0.2809,
+      "segmentation_pct": 1.19
+    },
+    {
+      "image": "49_0.jpg",
+      "is_wound": true,
+      "confidence": 0.7864,
+      "segmentation_pct": 3.19
+    },
+    {
+      "image": "49_1(1).jpg",
+      "is_wound": false,
+      "confidence": 0.0179,
+      "segmentation_pct": 0.27
+    },
+    {
+      "image": "49_1.jpg",
+      "is_wound": false,
+      "confidence": 0.0179,
+      "segmentation_pct": 0.27
+    },
+    {
+      "image": "4_0.jpg",
+      "is_wound": false,
+      "confidence": 0.0583,
+      "segmentation_pct": 1.49
+    },
+    {
+      "image": "51_0.jpg",
+      "is_wound": false,
+      "confidence": 0.0948,
+      "segmentation_pct": 0.98
+    },
+    {
+      "image": "51_1.jpg",
+      "is_wound": false,
+      "confidence": 0.0445,
+      "segmentation_pct": 1.3
+    },
+    {
+      "image": "57_0.jpg",
+      "is_wound": true,
+      "confidence": 0.8411,
+      "segmentation_pct": 2.88
+    },
+    {
+      "image": "66_0.jpg",
+      "is_wound": true,
+      "confidence": 0.4753,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "68_0.jpg",
+      "is_wound": false,
+      "confidence": 0.0037,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "68_1.jpg",
+      "is_wound": false,
+      "confidence": 0.0142,
+      "segmentation_pct": 0.79
+    },
+    {
+      "image": "74_0.jpg",
+      "is_wound": false,
+      "confidence": 0.0804,
+      "segmentation_pct": 4.7
+    },
+    {
+      "image": "76_0.jpg",
+      "is_wound": false,
+      "confidence": 0.3853,
+      "segmentation_pct": 3.72
+    },
+    {
+      "image": "76_1.jpg",
+      "is_wound": true,
+      "confidence": 0.7995,
+      "segmentation_pct": 1.85
+    },
+    {
+      "image": "76_2.jpg",
+      "is_wound": true,
+      "confidence": 0.8038,
+      "segmentation_pct": 10.57
+    },
+    {
+      "image": "76_3.jpg",
+      "is_wound": false,
+      "confidence": 0.1937,
+      "segmentation_pct": 1.87
+    },
+    {
+      "image": "76_4.jpg",
+      "is_wound": true,
+      "confidence": 0.4339,
+      "segmentation_pct": 1.47
+    },
+    {
+      "image": "76_5.jpg",
+      "is_wound": true,
+      "confidence": 0.5536,
+      "segmentation_pct": 4.63
+    },
+    {
+      "image": "76_6.jpg",
+      "is_wound": true,
+      "confidence": 0.7675,
+      "segmentation_pct": 5.73
+    },
+    {
+      "image": "7_0.jpg",
+      "is_wound": true,
+      "confidence": 0.7929,
+      "segmentation_pct": 1.73
+    },
+    {
+      "image": "83_0.jpg",
+      "is_wound": false,
+      "confidence": 0.3069,
+      "segmentation_pct": 2.44
+    },
+    {
+      "image": "92_0.jpg",
+      "is_wound": false,
+      "confidence": 0.1268,
+      "segmentation_pct": 5.28
+    },
+    {
+      "image": "99_0.jpg",
+      "is_wound": true,
+      "confidence": 0.4926,
+      "segmentation_pct": 3.14
+    },
+    {
+      "image": "9_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9362,
+      "segmentation_pct": 2.48
+    },
+    {
+      "image": "104_0.jpg",
+      "is_wound": true,
+      "confidence": 0.8608,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "108_0.jpg",
+      "is_wound": true,
+      "confidence": 0.8921,
+      "segmentation_pct": 6.0
+    },
+    {
+      "image": "108_1.jpg",
+      "is_wound": true,
+      "confidence": 0.8566,
+      "segmentation_pct": 12.17
+    },
+    {
+      "image": "10_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9139,
+      "segmentation_pct": 10.05
+    },
+    {
+      "image": "11_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9053,
+      "segmentation_pct": 15.58
+    },
+    {
+      "image": "11_1.jpg",
+      "is_wound": true,
+      "confidence": 0.8901,
+      "segmentation_pct": 9.97
+    },
+    {
+      "image": "11_2.jpg",
+      "is_wound": true,
+      "confidence": 0.923,
+      "segmentation_pct": 5.15
+    },
+    {
+      "image": "11_3.jpg",
+      "is_wound": true,
+      "confidence": 0.9119,
+      "segmentation_pct": 2.68
+    },
+    {
+      "image": "11_4.jpg",
+      "is_wound": true,
+      "confidence": 0.9431,
+      "segmentation_pct": 2.79
+    },
+    {
+      "image": "11_5.jpg",
+      "is_wound": true,
+      "confidence": 0.9054,
+      "segmentation_pct": 6.43
+    },
+    {
+      "image": "121_0.jpg",
+      "is_wound": true,
+      "confidence": 0.8525,
+      "segmentation_pct": 15.08
+    },
+    {
+      "image": "134_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9155,
+      "segmentation_pct": 1.96
+    },
+    {
+      "image": "134_1.jpg",
+      "is_wound": true,
+      "confidence": 0.8418,
+      "segmentation_pct": 3.0
+    },
+    {
+      "image": "138_0.jpg",
+      "is_wound": true,
+      "confidence": 0.7503,
+      "segmentation_pct": 12.27
+    },
+    {
+      "image": "138_1.jpg",
+      "is_wound": true,
+      "confidence": 0.8031,
+      "segmentation_pct": 7.79
+    },
+    {
+      "image": "142_0.jpg",
+      "is_wound": true,
+      "confidence": 0.874,
+      "segmentation_pct": 6.8
+    },
+    {
+      "image": "145_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9388,
+      "segmentation_pct": 2.41
+    },
+    {
+      "image": "148_0.jpg",
+      "is_wound": true,
+      "confidence": 0.8857,
+      "segmentation_pct": 9.52
+    },
+    {
+      "image": "151_0.jpg",
+      "is_wound": true,
+      "confidence": 0.8325,
+      "segmentation_pct": 17.61
+    },
+    {
+      "image": "151_1.jpg",
+      "is_wound": true,
+      "confidence": 0.936,
+      "segmentation_pct": 18.22
+    },
+    {
+      "image": "156_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9461,
+      "segmentation_pct": 7.95
+    },
+    {
+      "image": "156_1.jpg",
+      "is_wound": true,
+      "confidence": 0.4261,
+      "segmentation_pct": 5.42
+    },
+    {
+      "image": "17_0.jpg",
+      "is_wound": true,
+      "confidence": 0.7371,
+      "segmentation_pct": 6.82
+    },
+    {
+      "image": "17_1.jpg",
+      "is_wound": false,
+      "confidence": 0.1567,
+      "segmentation_pct": 3.06
+    },
+    {
+      "image": "25_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9321,
+      "segmentation_pct": 4.95
+    },
+    {
+      "image": "25_1.jpg",
+      "is_wound": true,
+      "confidence": 0.7156,
+      "segmentation_pct": 1.41
+    },
+    {
+      "image": "25_2.jpg",
+      "is_wound": true,
+      "confidence": 0.938,
+      "segmentation_pct": 5.64
+    },
+    {
+      "image": "25_3.jpg",
+      "is_wound": true,
+      "confidence": 0.9334,
+      "segmentation_pct": 2.6
+    },
+    {
+      "image": "2_0.jpg",
+      "is_wound": true,
+      "confidence": 0.8814,
+      "segmentation_pct": 14.53
+    },
+    {
+      "image": "37_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9013,
+      "segmentation_pct": 2.57
+    },
+    {
+      "image": "37_1.jpg",
+      "is_wound": true,
+      "confidence": 0.9011,
+      "segmentation_pct": 2.1
+    },
+    {
+      "image": "37_2.jpg",
+      "is_wound": true,
+      "confidence": 0.46,
+      "segmentation_pct": 0.01
+    },
+    {
+      "image": "37_3.jpg",
+      "is_wound": true,
+      "confidence": 0.9195,
+      "segmentation_pct": 0.19
+    },
+    {
+      "image": "42_0.jpg",
+      "is_wound": true,
+      "confidence": 0.8673,
+      "segmentation_pct": 8.49
+    },
+    {
+      "image": "42_1.jpg",
+      "is_wound": true,
+      "confidence": 0.8956,
+      "segmentation_pct": 4.74
+    },
+    {
+      "image": "42_2.jpg",
+      "is_wound": true,
+      "confidence": 0.7759,
+      "segmentation_pct": 22.89
+    },
+    {
+      "image": "42_3.jpg",
+      "is_wound": false,
+      "confidence": 0.3707,
+      "segmentation_pct": 13.55
+    },
+    {
+      "image": "47_0.jpg",
+      "is_wound": true,
+      "confidence": 0.7888,
+      "segmentation_pct": 13.27
+    },
+    {
+      "image": "47_1.jpg",
+      "is_wound": false,
+      "confidence": 0.1922,
+      "segmentation_pct": 5.1
+    },
+    {
+      "image": "47_2.jpg",
+      "is_wound": false,
+      "confidence": 0.3521,
+      "segmentation_pct": 13.24
+    },
+    {
+      "image": "51_0.jpg",
+      "is_wound": false,
+      "confidence": 0.3079,
+      "segmentation_pct": 1.69
+    },
+    {
+      "image": "51_1.jpg",
+      "is_wound": true,
+      "confidence": 0.8165,
+      "segmentation_pct": 1.6
+    },
+    {
+      "image": "53_0.jpg",
+      "is_wound": true,
+      "confidence": 0.7592,
+      "segmentation_pct": 2.94
+    },
+    {
+      "image": "53_1.jpg",
+      "is_wound": true,
+      "confidence": 0.9082,
+      "segmentation_pct": 5.57
+    },
+    {
+      "image": "53_2.jpg",
+      "is_wound": true,
+      "confidence": 0.7301,
+      "segmentation_pct": 1.13
+    },
+    {
+      "image": "53_3.jpg",
+      "is_wound": true,
+      "confidence": 0.6976,
+      "segmentation_pct": 1.2
+    },
+    {
+      "image": "53_4.jpg",
+      "is_wound": true,
+      "confidence": 0.8865,
+      "segmentation_pct": 1.25
+    },
+    {
+      "image": "56_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9523,
+      "segmentation_pct": 0.0
+    },
+    {
+      "image": "56_1.jpg",
+      "is_wound": true,
+      "confidence": 0.9181,
+      "segmentation_pct": 1.79
+    },
+    {
+      "image": "61_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9258,
+      "segmentation_pct": 3.27
+    },
+    {
+      "image": "67_0.jpg",
+      "is_wound": true,
+      "confidence": 0.4799,
+      "segmentation_pct": 1.88
+    },
+    {
+      "image": "67_1.jpg",
+      "is_wound": true,
+      "confidence": 0.9276,
+      "segmentation_pct": 5.11
+    },
+    {
+      "image": "75_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9018,
+      "segmentation_pct": 0.84
+    },
+    {
+      "image": "75_1.jpg",
+      "is_wound": true,
+      "confidence": 0.8124,
+      "segmentation_pct": 13.41
+    },
+    {
+      "image": "78_0.jpg",
+      "is_wound": true,
+      "confidence": 0.7967,
+      "segmentation_pct": 3.49
+    },
+    {
+      "image": "78_1.jpg",
+      "is_wound": true,
+      "confidence": 0.6722,
+      "segmentation_pct": 4.26
+    },
+    {
+      "image": "78_2.jpg",
+      "is_wound": true,
+      "confidence": 0.82,
+      "segmentation_pct": 0.49
+    },
+    {
+      "image": "78_3.jpg",
+      "is_wound": true,
+      "confidence": 0.9165,
+      "segmentation_pct": 12.44
+    },
+    {
+      "image": "7_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9202,
+      "segmentation_pct": 1.01
+    },
+    {
+      "image": "81_0.jpg",
+      "is_wound": true,
+      "confidence": 0.8002,
+      "segmentation_pct": 5.22
+    },
+    {
+      "image": "81_1.jpg",
+      "is_wound": false,
+      "confidence": 0.2617,
+      "segmentation_pct": 1.25
+    },
+    {
+      "image": "88_0.jpg",
+      "is_wound": true,
+      "confidence": 0.9028,
+      "segmentation_pct": 2.27
+    }
+  ]
+}
