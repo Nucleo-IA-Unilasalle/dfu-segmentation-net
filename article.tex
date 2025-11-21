@@ -17,14 +17,15 @@
 
 \author{
   Alexandre \\
-  \texttt{github.com/dfu-segmentation-net} \\
+  \href{mailto:alexandre.202111286@unilasalle.edu.br}{alexandre.202111286@unilasalle.edu.br} \\
+  \href{https://github.com/Nucleo-IA-Unilasalle/dfu-segmentation-net}{github.com/Nucleo-IA-Unilasalle/dfu-segmentation-net} \\
 }
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Diabetic Foot Ulcers (DFU) are a severe complication of diabetes, requiring timely and accurate monitoring. While automated segmentation models can assist in wound delineation, they often suffer from high false positive rates when deployed in real-world uncontrolled environments (e.g., confusing socks, floors, or other skin lesions with wounds). This paper presents a robust two-stage deep learning framework designed as a Clinical Decision Support Tool. The first stage utilizes an EfficientNet-B4 U-Net for high-sensitivity binary semantic segmentation. The second stage employs a Vision Transformer (ViT) based Verification Classifier to filter false positives. By integrating the predicted segmentation mask and segmentation percentage as inputs to the ViT, the system effectively distinguishes true wounds from background noise. Our approach achieves a specificity of 93.6\% with the ViT verifier, significantly outperforming baseline CNN methods, and provides a practical workflow for validating image quality before clinical review.
+Diabetic Foot Ulcers (DFU) are a serious complication of diabetes that requires timely and accurate monitoring. While automated segmentation models can assist in wound delineation, they often suffer from high false positive rates when deployed in real-world uncontrolled environments where other skin lesions with wounds can interfere with the output. This paper presents a robust two-stage deep learning framework designed as a clinical decision support tool. The first stage utilizes an EfficientNet-B4 U-Net for high-sensitivity binary semantic segmentation. The second stage employs a Vision Transformer (ViT) based Verification Classifier to filter false positives. By integrating the predicted segmentation mask and segmentation percentage as inputs to the ViT, the system effectively distinguishes true wounds from background noise. Our approach achieves a specificity of 93.6\% with the ViT verifier, significantly outperforming baseline CNN methods, and provides a practical workflow for validating image quality before clinical review.
 \end{abstract}
 
 \section{Introduction}
@@ -32,55 +33,42 @@ Diabetic Foot Ulcers (DFU) represent a significant burden on healthcare systems 
 
 However, deploying segmentation models in clinical settings faces a major challenge: \textbf{False Positives}. Models trained on curated wound datasets often over-segment or misclassify non-wound objects (such as socks, furniture, or healthy skin) as ulcers when applied to images taken in uncontrolled environments. In a clinical workflow, excessive false alarms can lead to "alarm fatigue" or distrust in the system.
 
-We propose a Clinical Decision Support System that acts as a "gatekeeper." Instead of replacing the clinician, the system verifies the presence of a wound with high specificity. If the system detects a non-wound or has low certainty, it prompts the user to retake the photo, ensuring that only high-quality, relevant data reaches the medical professional.
+We propose a clinical decision support system that acts as a "gatekeeper." Instead of replacing the clinician, the system verifies the presence of a wound with high specificity. If the system detects a non-wound or has low certainty, it prompts the user to retake the photo, ensuring that only high-quality, relevant data reaches the medical professional.
 
 \section{Methodology}
 
 \subsection{Dataset Construction}
 To build a robust system, we curated a diverse set of data for both training and "hard negative" mining:
-\begin{itemize}
-    \item \textbf{Positive Samples (Wounds):} The primary training data consists of the Kaggle Wound Segmentation Dataset and the Leprosy Chronic Wound Dataset.
-    \item \textbf{Negative Samples (Non-Wounds):} To train the verification classifier, we sourced images from MiniImageNet (general objects), and specific "hard negatives" including Skin Cancer and Skin Disease datasets (e.g., HAM10000). These datasets help the model distinguish DFU from other dermatological conditions.
-\end{itemize}
+For positive samples representing wounds, we utilized the Kaggle Wound Segmentation Dataset and the Leprosy Chronic Wound Dataset as our primary training data. Conversely, to train the verification classifier with negative samples (non-wounds), we sourced images from MiniImageNet for general objects. We also included specific "hard negatives" from Skin Cancer and Skin Disease datasets, such as HAM10000, to help the model distinguish DFU from other dermatological conditions.
 
 \subsection{Stage 1: Segmentation Network}
 The core segmentation model is an \textbf{EfficientNet-B4 U-Net}.
-\begin{itemize}
-    \item \textbf{Encoder:} EfficientNet-B4 pretrained on ImageNet, selected for its balance of accuracy and computational efficiency.
-    \item \textbf{Decoder:} A custom U-Net style decoder with skip connections that bridge the encoder and decoder layers to preserve spatial resolution, critical for boundary delineation.
-    \item \textbf{Training:} The model is trained using \textbf{Dice Loss} to handle class imbalance (small wound area vs. large background) and optimized with Adam (LR=0.001).
-    \item \textbf{Performance:} This stage is optimized for \textbf{Sensitivity (Recall)}, achieving a Dice Coefficient of approximately 89.3\%. We accept a higher false positive rate at this stage to ensure no potential wounds are missed.
-\end{itemize}
+The network employs an EfficientNet-B4 encoder pretrained on ImageNet, selected for its balance of accuracy and computational efficiency. This is paired with a custom U-Net style decoder, where skip connections bridge the encoder and decoder layers to preserve spatial resolution critical for boundary delineation. To handle class imbalance between small wound areas and large backgrounds, the model is trained using Dice Loss and optimized with Adam (LR=0.001). Prioritizing sensitivity, this stage achieves a Dice Coefficient of approximately 89.3\%, accepting a higher false positive rate to ensure no potential wounds are missed.
 
 \subsection{Stage 2: Verification Classifier}
 To address the false positives generated by the high-sensitivity segmentation model, we implement a secondary binary classifier.
 \subsubsection{Input Strategy}
-We hypothesize that the segmentation map itself contains valuable context (e.g., shape, location) that can aid classification. Therefore, the classifier inputs are:
-\begin{enumerate}
-    \item \textbf{4-Channel Image:} The original RGB image concatenated with the predicted binary mask from Stage 1.
-    \item \textbf{Segmentation Percentage:} A scalar value representing the proportion of the image predicted as "wound." This feature helps filter noise (extremely small regions) or massive failures (entire image segmented).
-\end{enumerate}
+We hypothesize that the segmentation map itself contains valuable context (e.g., shape, location) that can aid classification.
+The classifier inputs consist of a 4-channel image (created by concatenating the original RGB image with the predicted binary mask from Stage 1) and a scalar segmentation percentage representing the proportion of the image predicted as a wound. This additional scalar helps filter noise from extremely small regions or massive failures where the entire image is segmented.
 
 \subsubsection{Vision Transformer (ViT) Architecture}
 We utilized a \textbf{ViT-B/16} architecture for the verification task.
-\begin{itemize}
-    \item \textbf{Input Modification:} The first convolutional projection layer (\texttt{conv\_proj}) was modified to accept 4 channels. The weights for the mask channel were initialized to zero to allow gradual learning without disrupting the pretrained RGB features.
-    \item \textbf{Feature Fusion:} The 768-dimensional feature vector from the ViT encoder is concatenated with the Segmentation Percentage scalar.
-    \item \textbf{Classification Head:} A multi-layer perceptron (MLP) maps the combined features to a binary output (Wound vs. Non-Wound).
-\end{itemize}
+We modified the first convolutional projection layer (\texttt{conv\_proj}) to accept four channels, initializing the mask channel weights to zero to allow gradual learning without disrupting the pretrained RGB features. The resulting 768-dimensional feature vector from the ViT encoder is then concatenated with the segmentation percentage scalar. Finally, a multi-layer perceptron (MLP) classification head maps these combined features to a binary output distinguishing wounds from non-wounds.
+
+\subsubsection{Threshold Optimization}
+The verification classifier outputs a confidence score between 0 and 1, requiring a threshold to convert this continuous value into a binary decision. Rather than using the default threshold of 0.5, we optimize the threshold by systematically evaluating all possible values from 0.0 to 1.0 in increments of 0.01 on separate validation sets containing both positive samples (wounds) and hard negative samples (skin lesions). For each candidate threshold, we compute classification metrics including precision, recall (sensitivity), specificity, and F1 score. The optimal threshold is selected as the value that maximizes the F1 score, which balances the trade-off between correctly identifying wounds and minimizing false alarms. This optimization process ensures that the verification stage operates at a threshold tailored to the clinical requirements of high specificity while maintaining acceptable sensitivity.
+
+\subsection{Evaluation Metrics}
+We employ standard classification and segmentation metrics to evaluate our two-stage system. For binary classification tasks (Stage 2), we use the following metrics based on true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN):
+
+Sensitivity ($\text{Sensitivity} = \frac{TP}{TP + FN}$) measures the proportion of actual wounds correctly identified, where high sensitivity ensures minimal missed wounds. Specificity ($\text{Specificity} = \frac{TN}{TN + FP}$) tracks the proportion of non-wounds correctly rejected, minimizing false alarms. Precision ($\text{Precision} = \frac{TP}{TP + FP}$) indicates the reliability of positive predictions by measuring the proportion of predicted wounds that are actual wounds. Finally, the F1 Score ($\text{F1} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$) provides a balanced harmonic mean of precision and recall.
+
+For segmentation evaluation (Stage 1), we use:
+The Dice Coefficient ($\text{Dice} = \frac{2|X \cap Y|}{|X| + |Y|}$) measures the spatial overlap between the predicted mask $X$ and the ground truth mask $Y$, ranging from 0 (no overlap) to 1 (perfect overlap). Consequently, Dice Loss ($\mathcal{L}_{\text{Dice}} = 1 - \text{Dice}$) serves as the training objective for the segmentation network to effectively handle class imbalance.
 
 \section{Clinical Workflow and Logic}
 The system is designed to function as follows:
-\begin{enumerate}
-    \item \textbf{Image Capture:} The clinician or patient captures an image of the foot.
-    \item \textbf{Segmentation:} The EfficientNet-B4 U-Net generates a candidate mask.
-    \item \textbf{Verification:} The ViT model analyzes the image and mask.
-    \item \textbf{Decision Logic:}
-    \begin{itemize}
-        \item If \textbf{Verified as Wound}: The segmentation result and area measurements are presented to the clinician.
-        \item If \textbf{Verified as Non-Wound/Low Certainty}: The system triggers a feedback prompt: \textit{"Low certainty detected. Please check lighting, remove background clutter (e.g., socks), and try again."}
-    \end{itemize}
-\end{enumerate}
+The process begins when a clinician or patient captures an image of the foot, which is then processed by the EfficientNet-B4 U-Net to generate a candidate mask. Subsequently, the ViT model analyzes both the image and the mask for verification. If the system verifies the input as a wound, it presents the segmentation result and area measurements to the clinician. However, if the system detects a non-wound or has low certainty, it triggers a feedback prompt advising the user to check lighting, remove background clutter (such as socks), and retake the photo.
 We employ \textbf{optimized thresholds} for the verification stage, specifically maximizing specificity to ensure that the "warning" mechanism is accurate and not annoying to the user.
 
 \section{Results}
