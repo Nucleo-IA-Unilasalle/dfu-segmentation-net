@@ -68,7 +68,6 @@ The Dice Coefficient ($\text{Dice} = \frac{2|X \cap Y|}{|X| + |Y|}$) measures th
 \section{Clinical Workflow and Logic}
 The system is designed to function as follows:
 The process begins when a clinician or patient captures an image of the foot, which is then processed by the EfficientNet-B4 U-Net to generate a candidate mask. Subsequently, the ViT model analyzes both the image and the mask for verification. If the system verifies the input as a wound, it presents the segmentation result and area measurements to the clinician. However, if the system detects a non-wound or has low certainty, it triggers a feedback prompt advising the user to check lighting, remove background clutter (such as socks), and retake the photo.
-We employ \textbf{optimized thresholds} for the verification stage, specifically maximizing specificity to ensure that the "warning" mechanism is accurate and not annoying to the user.
 
 \section{Results}
 
