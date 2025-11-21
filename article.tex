@@ -58,6 +58,25 @@ We modified the first convolutional projection layer (\texttt{conv\_proj}) to ac
 \subsubsection{Threshold Optimization}
 The verification classifier outputs a confidence score between 0 and 1, requiring a threshold to convert this continuous value into a binary decision. Rather than using the default threshold of 0.5, we optimize the threshold by systematically evaluating all possible values from 0.0 to 1.0 in increments of 0.01 on separate validation sets containing both positive samples (wounds) and hard negative samples (skin lesions). For each candidate threshold, we compute classification metrics including precision, recall (sensitivity), specificity, and F1 score. The optimal threshold is selected as the value that maximizes the F1 score, which balances the trade-off between correctly identifying wounds and minimizing false alarms. This optimization process ensures that the verification stage operates at a threshold tailored to the clinical requirements of high specificity while maintaining acceptable sensitivity.
 
+To perform this analysis, we use the script \texttt{review/find\_optimal\_threshold.py}, which sweeps the decision threshold and records precision, recall, F1 score, and false positive rate for both the CNN baseline and the ViT verifier. Figure~\ref{fig:threshold_plots} visualizes how these metrics evolve as a function of the threshold and highlights the operating points selected for deployment.
+
+\begin{figure}[h]
+  \centering
+  \begin{minipage}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{review/threshold_analysis_cnn.png}
+    \caption*{(a) CNN verification model. The curves show precision, recall (sensitivity), F1 score, and false positive rate as the decision threshold varies. The vertical dashed line marks the optimal threshold (0.41) obtained by maximizing the F1 score, which slightly improves sensitivity while maintaining acceptable specificity.}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{review/threshold_analysis_vit.png}
+    \caption*{(b) ViT verification model. As the threshold increases, precision improves and the false positive rate decreases, while recall gradually declines. The optimal threshold (0.70), indicated by the vertical dashed line, yields a high F1 score and substantially reduces false positives, aligning with the clinical goal of high specificity.}
+  \end{minipage}
+  \caption{Threshold analysis for the CNN (a) and ViT (b) verification models, showing the trade-off between precision, recall, F1 score, and false positive rate across decision thresholds.}
+  \label{fig:threshold_plots}
+\end{figure}
+
 \subsection{Evaluation Metrics}
 We employ standard classification and segmentation metrics to evaluate our two-stage system. For binary classification tasks (Stage 2), we use the following metrics based on true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN):
 
@@ -74,6 +93,13 @@ We employ \textbf{optimized thresholds} for the verification stage, specifically
 \section{Results}
 
 We evaluated the system on independent test sets, including specific "Specificity Tests" using skin lesion datasets to mimic hard false positives.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{model_predictions.png}
+  \caption{Qualitative examples of segmentation results. Each column shows the original image, ground truth mask, predicted probability map, and final binary prediction with IoU and Dice scores.}
+  \label{fig:model_predictions}
+\end{figure}
 
 \begin{table}[h]
  \caption{Comparison of Verification Models (CNN vs ViT)}
