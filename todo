@@ -2,3 +2,5 @@ examples of results
 -image of segmentation net
 model flowchart and diagram
 add citations
+ablation (no masks for verifier)
+-remove threshold optim
