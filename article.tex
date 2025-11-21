@@ -11,12 +11,14 @@
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
 \usepackage{graphicx}
+\usepackage{caption}
 \usepackage{amsmath}
+\usepackage[numbers]{natbib}
 
 \title{DFU Segmentation and False Positive Reduction: A Clinical Decision Support System using EfficientNet and Vision Transformers}
 
 \author{
-  Alexandre \\
+  Alexandre dos Santos Pereira \\
   \href{mailto:alexandre.202111286@unilasalle.edu.br}{alexandre.202111286@unilasalle.edu.br} \\
   \href{https://github.com/Nucleo-IA-Unilasalle/dfu-segmentation-net}{github.com/Nucleo-IA-Unilasalle/dfu-segmentation-net} \\
 }
@@ -25,7 +27,7 @@
 \maketitle
 
 \begin{abstract}
-Diabetic Foot Ulcers (DFU) are a serious complication of diabetes that requires timely and accurate monitoring. While automated segmentation models can assist in wound delineation, they often suffer from high false positive rates when deployed in real-world uncontrolled environments where other skin lesions with wounds can interfere with the output. This paper presents a robust two-stage deep learning framework designed as a clinical decision support tool. The first stage utilizes an EfficientNet-B4 U-Net for high-sensitivity binary semantic segmentation. The second stage employs a Vision Transformer (ViT) based Verification Classifier to filter false positives. By integrating the predicted segmentation mask and segmentation percentage as inputs to the ViT, the system effectively distinguishes true wounds from background noise. Our approach achieves a specificity of 93.6\% with the ViT verifier, significantly outperforming baseline CNN methods, and provides a practical workflow for validating image quality before clinical review.
+Diabetic Foot Ulcers (DFU) are a serious complication of diabetes that requires timely and accurate monitoring. While automated segmentation models can assist in wound delineation, they often suffer from high false positive rates when deployed in real-world uncontrolled environments where other skin lesions with wounds can interfere with the output. This paper presents a robust two-stage deep learning framework designed as a clinical decision support tool. The first stage utilizes an EfficientNet-B4 U-Net for high-sensitivity binary semantic segmentation. The second stage employs a Vision Transformer (ViT) based Verification Classifier to filter false positives. By integrating the predicted segmentation mask and segmentation percentage as inputs to the ViT, the system effectively distinguishes true wounds from background noise. Our approach achieves a specificity of 95.2\% with the ViT verifier, significantly outperforming baseline CNN methods, and provides a practical workflow for validating image quality before clinical review.
 \end{abstract}
 
 \section{Introduction}
@@ -39,11 +41,11 @@ We propose a clinical decision support system that acts as a "gatekeeper." Inste
 
 \subsection{Dataset Construction}
 To build a robust system, we curated a diverse set of data for both training and "hard negative" mining:
-For positive samples representing wounds, we utilized the Kaggle Wound Segmentation Dataset and the Leprosy Chronic Wound Dataset as our primary training data. Conversely, to train the verification classifier with negative samples (non-wounds), we sourced images from MiniImageNet for general objects. We also included specific "hard negatives" from Skin Cancer and Skin Disease datasets, such as HAM10000, to help the model distinguish DFU from other dermatological conditions.
+For positive samples representing wounds, we utilized the Wound Segmentation Dataset \cite{wang2020wound} and the Leprosy Chronic Wound Dataset as our primary training data. Conversely, to train the verification classifier with negative samples (non-wounds), we sourced images from MiniImageNet for general objects. We also included specific "hard negatives" from Skin Cancer and Skin Disease datasets, such as HAM10000 \cite{tschandl2018ham10000}, to help the model distinguish DFU from other dermatological conditions.
 
 \subsection{Stage 1: Segmentation Network}
 The core segmentation model is an \textbf{EfficientNet-B4 U-Net}.
-The network employs an EfficientNet-B4 encoder pretrained on ImageNet, selected for its balance of accuracy and computational efficiency. This is paired with a custom U-Net style decoder, where skip connections bridge the encoder and decoder layers to preserve spatial resolution critical for boundary delineation. To handle class imbalance between small wound areas and large backgrounds, the model is trained using Dice Loss and optimized with Adam (LR=0.001). Prioritizing sensitivity, this stage achieves a Dice Coefficient of approximately 89.3\%, accepting a higher false positive rate to ensure no potential wounds are missed.
+The network employs an EfficientNet-B4 encoder \cite{tan2019efficientnet} pretrained on ImageNet, selected for its balance of accuracy and computational efficiency. This is paired with a custom U-Net style decoder \cite{ronneberger2015unet}, where skip connections bridge the encoder and decoder layers to preserve spatial resolution critical for boundary delineation. To handle class imbalance between small wound areas and large backgrounds, the model is trained using Dice Loss and optimized with Adam (LR=0.001). Prioritizing sensitivity, this stage achieves a Dice Coefficient of approximately 89.3\%, accepting a higher false positive rate to ensure no potential wounds are missed.
 
 \subsection{Stage 2: Verification Classifier}
 To address the false positives generated by the high-sensitivity segmentation model, we implement a secondary binary classifier.
@@ -52,7 +54,7 @@ We hypothesize that the segmentation map itself contains valuable context (e.g.,
 The classifier inputs consist of a 4-channel image (created by concatenating the original RGB image with the predicted binary mask from Stage 1) and a scalar segmentation percentage representing the proportion of the image predicted as a wound. This additional scalar helps filter noise from extremely small regions or massive failures where the entire image is segmented.
 
 \subsubsection{Vision Transformer (ViT) Architecture}
-We utilized a \textbf{ViT-B/16} architecture for the verification task.
+We utilized a \textbf{ViT-B/16} architecture \cite{dosovitskiy2020image} for the verification task.
 We modified the first convolutional projection layer (\texttt{conv\_proj}) to accept four channels, initializing the mask channel weights to zero to allow gradual learning without disrupting the pretrained RGB features. The resulting 768-dimensional feature vector from the ViT encoder is then concatenated with the segmentation percentage scalar. Finally, a multi-layer perceptron (MLP) classification head maps these combined features to a binary output distinguishing wounds from non-wounds.
 
 \subsubsection{Threshold Optimization}
@@ -65,13 +67,13 @@ To perform this analysis, we use the script \texttt{review/find\_optimal\_thresh
   \begin{minipage}[b]{0.48\textwidth}
     \centering
     \includegraphics[width=\textwidth]{review/threshold_analysis_cnn.png}
-    \caption*{(a) CNN verification model. The curves show precision, recall (sensitivity), F1 score, and false positive rate as the decision threshold varies. The vertical dashed line marks the optimal threshold (0.41) obtained by maximizing the F1 score, which slightly improves sensitivity while maintaining acceptable specificity.}
+    \caption*{(a) CNN verification model. The curves show precision, recall (sensitivity), F1 score, and false positive rate as the decision threshold varies. The vertical dashed line marks the optimal threshold (0.77) obtained by maximizing the F1 score, which improves specificity while maintaining acceptable sensitivity.}
   \end{minipage}
   \hfill
   \begin{minipage}[b]{0.48\textwidth}
     \centering
     \includegraphics[width=\textwidth]{review/threshold_analysis_vit.png}
-    \caption*{(b) ViT verification model. As the threshold increases, precision improves and the false positive rate decreases, while recall gradually declines. The optimal threshold (0.70), indicated by the vertical dashed line, yields a high F1 score and substantially reduces false positives, aligning with the clinical goal of high specificity.}
+    \caption*{(b) ViT verification model. As the threshold increases, precision improves and the false positive rate decreases, while recall gradually declines. The optimal threshold (0.01), indicated by the vertical dashed line, yields a high F1 score and substantially reduces false positives, aligning with the clinical goal of high specificity.}
   \end{minipage}
   \caption{Threshold analysis for the CNN (a) and ViT (b) verification models, showing the trade-off between precision, recall, F1 score, and false positive rate across decision thresholds.}
   \label{fig:threshold_plots}
@@ -108,19 +110,52 @@ We evaluated the system on independent test sets, including specific "Specificit
     \toprule
     Model & Threshold & Sensitivity & Specificity & F1 Score & Precision \\
     \midrule
-    CNN Baseline & 0.5 & 56.81\% & 86.20\% & 60.00\% & 63.68\% \\
-    CNN Optimized & 0.41 & \textbf{64.32\%} & 81.80\% & 62.13\% & 60.09\% \\
-    ViT Baseline & 0.5 & 61.97\% & 88.60\% & 65.67\% & 69.84\% \\
-    \textbf{ViT Optimized} & \textbf{0.70} & 58.69\% & \textbf{93.60\%} & \textbf{67.57\%} & \textbf{79.62\%} \\
+    CNN Baseline & 0.5 & \textbf{66.67\%} & 85.20\% & 66.20\% & 65.74\% \\
+    CNN Optimized & 0.77 & 57.28\% & 94.20\% & 67.03\% & 80.79\% \\
+    ViT Baseline & 0.5 & 34.27\% & \textbf{99.60\%} & 50.69\% & \textbf{97.33\%} \\
+    ViT Optimized & 0.01 & 56.34\% & 95.20\% & \textbf{67.23\%} & 83.33\% \\
     \bottomrule
   \end{tabular}
   \label{tab:results}
 \end{table}
 
 \subsection{Analysis}
-The ViT model significantly outperforms the CNN baseline in filtering false positives. At the optimized threshold of 0.70, the ViT achieves a \textbf{Specificity of 93.6\%}, reducing the False Positive Rate to just 6.4\% on challenging skin lesion datasets. While there is a slight trade-off in sensitivity compared to the optimized CNN, the substantial gain in precision (+19.53\%) makes the ViT far more suitable for a clinical support tool where trust is paramount.
+The ViT model significantly outperforms the CNN baseline in filtering false positives. At the default threshold of 0.5, the ViT baseline achieves an exceptional \textbf{Specificity of 99.6\%} with 97.33\% precision, demonstrating its superior ability to reject non-wounds compared to the CNN baseline (85.2\% specificity). However, this comes at the cost of very low sensitivity (34.27\%). By optimizing the threshold to 0.01, we achieve a better balance: the ViT maintains high specificity (95.2\%) and precision (83.33\%) while improving sensitivity to 56.34\%, making it far more suitable for a clinical support tool where both trust and detection capability are paramount.
 
 \section{Conclusion}
-We presented a DFU segmentation framework that effectively mitigates false positives through a novel two-stage approach. By leveraging an EfficientNet-B4 U-Net for segmentation and a Vision Transformer that consumes both image and mask data for verification, we achieved high specificity suitable for real-world deployment. This system empowers clinicians by automating wound measurement while actively filtering poor-quality or irrelevant images, streamlining the documentation workflow in diabetic foot care.
+We presented a DFU segmentation framework that effectively mitigates false positives through a novel two-stage approach. By leveraging an EfficientNet-B4 U-Net \cite{tan2019efficientnet,ronneberger2015unet} for segmentation and a Vision Transformer \cite{dosovitskiy2020image} that consumes both image and mask data for verification, we achieved high specificity suitable for real-world deployment. This system empowers clinicians by automating wound measurement while actively filtering poor-quality or irrelevant images, streamlining the documentation workflow in diabetic foot care.
+
+\begin{thebibliography}{99}
+
+\bibitem{tan2019efficientnet}
+Tan, M., \& Le, Q. (2019).
+\newblock EfficientNet: Rethinking model scaling for convolutional neural networks.
+\newblock In {\em International Conference on Machine Learning} (pp. 6105--6114).
+\newblock PMLR.
+
+\bibitem{ronneberger2015unet}
+Ronneberger, O., Fischer, P., \& Brox, T. (2015).
+\newblock U-net: Convolutional networks for biomedical image segmentation.
+\newblock In {\em International Conference on Medical Image Computing and Computer-Assisted Intervention} (pp. 234--241).
+\newblock Springer.
+
+\bibitem{wang2020wound}
+Wang, C., Anisuzzaman, D.~M., Williamson, V., Dhar, M.~K., Rostami, B., Niezgoda, J., Gopalakrishnan, S., \& Yu, Z. (2020).
+\newblock Fully automatic wound segmentation with deep convolutional neural networks.
+\newblock {\em Scientific Reports}, 10, 21897.
+\newblock \url{https://doi.org/10.1038/s41598-020-78799-w}
+
+\bibitem{tschandl2018ham10000}
+Tschandl, P., Rosendahl, C., \& Kittler, H. (2018).
+\newblock The HAM10000 dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions.
+\newblock {\em Scientific Data}, 5, 180161.
+\newblock \url{https://doi.org/10.1038/sdata.2018.161}
+
+\bibitem{dosovitskiy2020image}
+Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T., Dehghani, M., Minderer, M., Heigold, G., Gelly, S., Uszkoreit, J., \& Houlsby, N. (2020).
+\newblock An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale.
+\newblock {\em arXiv preprint arXiv:2010.11929}.
+
+\end{thebibliography}
 
 \end{document}

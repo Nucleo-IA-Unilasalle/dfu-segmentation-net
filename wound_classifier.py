@@ -17,6 +17,7 @@ from datasets import load_dataset
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, precision_recall_fscore_support
 import seaborn as sns
+import mlflow
 
 from pretrained import EfficientNetUNet, WoundSegmentationDataset
 
@@ -398,13 +399,20 @@ def train_epoch(
     criterion: nn.Module,
     optimizer: torch.optim.Optimizer,
     device: torch.device,
-    epoch: int
+    epoch: int,
+    total_batches_per_epoch: int = None
 ) -> Tuple[float, float]:
     """Train model for one epoch."""
     model.train()
     total_loss = 0.0
     correct = 0
     total = 0
+    
+    if total_batches_per_epoch is None:
+        total_batches_per_epoch = len(dataloader)
+    
+    # Calculate logging interval (every 5% of epoch)
+    log_interval = max(1, total_batches_per_epoch // 20)
     
     for batch_idx, (images, percentages, labels) in enumerate(dataloader):
         images = images.to(device)
@@ -423,6 +431,20 @@ def train_epoch(
         predictions = (torch.sigmoid(outputs) > 0.5).float()
         correct += (predictions == labels).sum().item()
         total += labels.size(0)
+        
+        # Calculate step for MLflow (epoch * batches_per_epoch + batch_idx)
+        step = epoch * total_batches_per_epoch + batch_idx
+        
+        # Log every 5% of epoch
+        if batch_idx % log_interval == 0 or batch_idx == len(dataloader) - 1:
+            running_loss = total_loss / (batch_idx + 1)
+            running_acc = 100.0 * correct / total
+            batch_loss = loss.item()
+            mlflow.log_metrics({
+                "train_loss": running_loss,
+                "train_batch_loss": batch_loss,
+                "train_accuracy": running_acc
+            }, step=step)
         
         if batch_idx % 10 == 0:
             print(f"Epoch [{epoch}] Batch [{batch_idx}/{len(dataloader)}] - Loss: {loss.item():.4f}, Acc: {100.0 * correct / total:.2f}%")
@@ -517,6 +539,20 @@ def main() -> None:
     random.seed(42)
     np.random.seed(42)
     torch.manual_seed(42)
+    
+    # MLflow setup
+    mlflow.set_experiment("Wound_Classifier_CNN")
+    mlflow.start_run()
+    mlflow.log_params({
+        "model_type": "CNN_EfficientNet_Backbone",
+        "batch_size": batch_size,
+        "learning_rate": learning_rate,
+        "num_epochs": num_epochs,
+        "image_size": image_size,
+        "dropout_rate": dropout_rate,
+        "balance_size": str(balance_size),
+        "segmentation_model": segmentation_model_path
+    })
     
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
@@ -615,7 +651,7 @@ def main() -> None:
         
         # Train
         train_loss, train_acc = train_epoch(
-            model, train_loader, criterion, optimizer, device, epoch
+            model, train_loader, criterion, optimizer, device, epoch, len(train_loader)
         )
         
         # Validate
@@ -639,6 +675,17 @@ def main() -> None:
         print(f"  Val Loss: {val_loss:.4f}, Val Acc: {val_acc:.2f}%")
         print(f"  Val Precision: {val_precision:.4f}, Val Recall: {val_recall:.4f}, Val F1: {val_f1:.4f}")
         print(f"  Confusion Matrix:\n{conf_matrix}")
+
+        # Log validation metrics to MLflow at end of epoch
+        # Training metrics are already logged during epoch (every 5%)
+        epoch_end_step = (epoch + 1) * len(train_loader)
+        mlflow.log_metrics({
+            "val_loss": val_loss,
+            "val_accuracy": val_acc,
+            "val_precision": float(val_precision),
+            "val_recall": float(val_recall),
+            "val_f1": float(val_f1)
+        }, step=epoch_end_step)
         
         # Save best model based on F1 score
         if val_f1 > best_f1:
@@ -688,6 +735,22 @@ def main() -> None:
     print(f"\nConfusion Matrix:")
     print(f"  TN: {final_conf_matrix[0, 0]}, FP: {final_conf_matrix[0, 1]}")
     print(f"  FN: {final_conf_matrix[1, 0]}, TP: {final_conf_matrix[1, 1]}")
+
+    # Log final metrics and artifacts to MLflow
+    mlflow.log_metrics({
+        "test_accuracy": final_acc,
+        "test_precision": final_precision,
+        "test_recall": final_recall,
+        "test_f1": final_f1
+    })
+    
+    mlflow.log_artifact("wound_classifier_metrics.json")
+    if os.path.exists("wound_classifier_confusion_matrix.png"):
+        mlflow.log_artifact("wound_classifier_confusion_matrix.png")
+    if os.path.exists("wound_classifier_best_model.pth"):
+        mlflow.log_artifact("wound_classifier_best_model.pth")
+        
+    mlflow.end_run()
 
 
 if __name__ == "__main__":

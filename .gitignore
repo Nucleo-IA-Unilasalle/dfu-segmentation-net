@@ -6,3 +6,4 @@ mask_cache_vit_train
 mask_cache_vit_test
 wound_classifier_best_model.pth
 wound_classifier_vit_best_model.pth
+mlruns
