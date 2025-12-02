@@ -469,6 +469,37 @@ def validate_epoch(
     return avg_loss, accuracy, precision, recall, f1, conf_matrix
 
 
+def calculate_detailed_metrics(conf_matrix: np.ndarray) -> Dict[str, float]:
+    """Calculate detailed metrics from confusion matrix."""
+    tn = int(conf_matrix[0, 0])
+    fp = int(conf_matrix[0, 1])
+    fn = int(conf_matrix[1, 0])
+    tp = int(conf_matrix[1, 1])
+    
+    # Calculate metrics
+    accuracy = (tp + tn) / (tp + tn + fp + fn) if (tp + tn + fp + fn) > 0 else 0.0
+    precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
+    recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+    specificity = tn / (tn + fp) if (tn + fp) > 0 else 0.0
+    f1_score = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0
+    false_positive_rate = fp / (fp + tn) if (fp + tn) > 0 else 0.0
+    false_negative_rate = fn / (fn + tp) if (fn + tp) > 0 else 0.0
+    
+    return {
+        'true_positives': tp,
+        'true_negatives': tn,
+        'false_positives': fp,
+        'false_negatives': fn,
+        'accuracy': float(accuracy),
+        'precision': float(precision),
+        'recall': float(recall),
+        'specificity': float(specificity),
+        'f1_score': float(f1_score),
+        'false_positive_rate': float(false_positive_rate),
+        'false_negative_rate': float(false_negative_rate)
+    }
+
+
 def plot_confusion_matrix(conf_matrix: np.ndarray, output_path: str) -> None:
     """Plot and save confusion matrix."""
     plt.figure(figsize=(8, 6))
@@ -589,6 +620,15 @@ def main() -> None:
     
     print("\nStarting training...\n")
     best_f1 = 0.0
+    training_history = {
+        'train_loss': [],
+        'train_accuracy': [],
+        'val_loss': [],
+        'val_accuracy': [],
+        'val_precision': [],
+        'val_recall': [],
+        'val_f1': []
+    }
     
     for epoch in range(num_epochs):
         epoch_start = time.time()
@@ -597,6 +637,15 @@ def main() -> None:
         val_loss, val_acc, val_precision, val_recall, val_f1, conf_matrix = validate_epoch(model, test_loader, criterion, device)
         
         epoch_time = time.time() - epoch_start
+        
+        # Store metrics in training history
+        training_history['train_loss'].append(train_loss)
+        training_history['train_accuracy'].append(train_acc)
+        training_history['val_loss'].append(val_loss)
+        training_history['val_accuracy'].append(val_acc)
+        training_history['val_precision'].append(float(val_precision))
+        training_history['val_recall'].append(float(val_recall))
+        training_history['val_f1'].append(float(val_f1))
         
         print(f"\nEpoch [{epoch+1}/{num_epochs}] - Time: {epoch_time:.2f}s")
         print(f"  Train Loss: {train_loss:.4f}, Acc: {train_acc:.2f}%")
@@ -620,9 +669,67 @@ def main() -> None:
 
     print("\nTraining completed!")
     
+    # Load best model and evaluate
+    model.load_state_dict(torch.load(output_model_name))
+    _, final_acc, final_precision, final_recall, final_f1, final_conf_matrix = validate_epoch(
+        model, test_loader, criterion, device
+    )
+    
+    # Calculate detailed metrics
+    detailed_metrics = calculate_detailed_metrics(final_conf_matrix)
+    
+    # Save metrics to JSON
+    metrics_filename = output_model_name.replace(".pth", "_metrics.json")
+    final_metrics = {
+        'best_f1_score': float(best_f1),
+        'final_accuracy': float(final_acc),
+        'final_precision': float(final_precision),
+        'final_recall': float(final_recall),
+        'final_f1': float(final_f1),
+        'confusion_matrix': final_conf_matrix.tolist(),
+        'detailed_metrics': detailed_metrics,
+        'training_history': training_history,
+        'hyperparameters': {
+            'batch_size': batch_size,
+            'learning_rate': learning_rate,
+            'num_epochs': num_epochs,
+            'image_size': image_size,
+            'dropout_rate': dropout_rate,
+            'model_type': 'ViT_B_16',
+            'segmentation_model': segmentation_model_path
+        }
+    }
+    
+    with open(metrics_filename, 'w') as f:
+        json.dump(final_metrics, f, indent=2)
+    
+    print(f"\nFinal Test Results:")
+    print(f"  Accuracy: {final_acc:.2f}%")
+    print(f"  Precision: {final_precision:.4f}")
+    print(f"  Recall: {final_recall:.4f}")
+    print(f"  F1 Score: {final_f1:.4f}")
+    print(f"  Specificity: {detailed_metrics['specificity']:.4f}")
+    print(f"  False Positive Rate: {detailed_metrics['false_positive_rate']:.4f}")
+    print(f"  False Negative Rate: {detailed_metrics['false_negative_rate']:.4f}")
+    print(f"\nConfusion Matrix:")
+    print(f"  TN: {final_conf_matrix[0, 0]}, FP: {final_conf_matrix[0, 1]}")
+    print(f"  FN: {final_conf_matrix[1, 0]}, TP: {final_conf_matrix[1, 1]}")
+    print(f"\nMetrics saved to: {metrics_filename}")
+    
     mlflow.log_metric("best_val_f1", best_f1)
+    mlflow.log_metrics({
+        "test_accuracy": final_acc,
+        "test_precision": final_precision,
+        "test_recall": final_recall,
+        "test_f1": final_f1,
+        "test_specificity": detailed_metrics['specificity'],
+        "test_false_positive_rate": detailed_metrics['false_positive_rate'],
+        "test_false_negative_rate": detailed_metrics['false_negative_rate']
+    })
     if os.path.exists(output_model_name):
         mlflow.log_artifact(output_model_name)
+    if os.path.exists(metrics_filename):
+        mlflow.log_artifact(metrics_filename)
     mlflow.end_run()
     
     # Instructions for @review validation
