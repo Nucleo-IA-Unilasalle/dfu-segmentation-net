@@ -1,1293 +1,1293 @@
 {
   "summary": {
     "dataset": "AZH Wound Dataset (Wounds)",
-    "architecture": "vit",
+    "architecture": "vit_ablation",
     "threshold": 0.5,
     "total_images": 213,
-    "true_positives": 172,
-    "false_negatives": 41,
-    "sensitivity_percent": 80.75,
-    "average_confidence": 0.7998,
-    "average_segmentation_pct": 4.38
+    "true_positives": 147,
+    "false_negatives": 66,
+    "sensitivity_percent": 69.01,
+    "average_confidence": 0.6715,
+    "average_segmentation_pct": 0.0
   },
   "results": [
     {
       "image": "105_0.jpg",
       "is_wound": true,
-      "confidence": 0.9996,
-      "segmentation_pct": 0.35
+      "confidence": 0.8118,
+      "segmentation_pct": 0.0
     },
     {
       "image": "106_0.jpg",
-      "is_wound": true,
-      "confidence": 0.8426,
-      "segmentation_pct": 7.42
+      "is_wound": false,
+      "confidence": 0.0012,
+      "segmentation_pct": 0.0
     },
     {
       "image": "111_0.jpg",
       "is_wound": true,
-      "confidence": 0.9956,
-      "segmentation_pct": 11.27
+      "confidence": 0.9812,
+      "segmentation_pct": 0.0
     },
     {
       "image": "112_0.jpg",
       "is_wound": true,
-      "confidence": 0.9998,
-      "segmentation_pct": 1.65
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "119_0.jpg",
       "is_wound": true,
-      "confidence": 0.9998,
-      "segmentation_pct": 1.82
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "121_0.jpg",
       "is_wound": true,
-      "confidence": 0.9998,
-      "segmentation_pct": 1.73
+      "confidence": 0.9999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "126_0.jpg",
       "is_wound": true,
-      "confidence": 0.9998,
-      "segmentation_pct": 3.85
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "129_0.jpg",
-      "is_wound": true,
-      "confidence": 0.9735,
-      "segmentation_pct": 0.42
+      "is_wound": false,
+      "confidence": 0.2985,
+      "segmentation_pct": 0.0
     },
     {
       "image": "129_1.jpg",
-      "is_wound": true,
-      "confidence": 0.9982,
-      "segmentation_pct": 5.91
+      "is_wound": false,
+      "confidence": 0.2378,
+      "segmentation_pct": 0.0
     },
     {
       "image": "129_2.jpg",
       "is_wound": true,
-      "confidence": 0.9963,
-      "segmentation_pct": 4.35
+      "confidence": 0.621,
+      "segmentation_pct": 0.0
     },
     {
       "image": "129_3.jpg",
       "is_wound": true,
-      "confidence": 0.9926,
-      "segmentation_pct": 8.46
+      "confidence": 0.6502,
+      "segmentation_pct": 0.0
     },
     {
       "image": "12_0.jpg",
-      "is_wound": true,
-      "confidence": 0.876,
-      "segmentation_pct": 14.87
+      "is_wound": false,
+      "confidence": 0.2822,
+      "segmentation_pct": 0.0
     },
     {
       "image": "138_0.jpg",
-      "is_wound": true,
-      "confidence": 0.8507,
-      "segmentation_pct": 13.36
+      "is_wound": false,
+      "confidence": 0.4262,
+      "segmentation_pct": 0.0
     },
     {
       "image": "138_1.jpg",
       "is_wound": false,
-      "confidence": 0.0803,
-      "segmentation_pct": 1.86
+      "confidence": 0.0074,
+      "segmentation_pct": 0.0
     },
     {
       "image": "142_0.jpg",
       "is_wound": true,
-      "confidence": 0.9997,
-      "segmentation_pct": 1.96
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "145_0.jpg",
-      "is_wound": true,
-      "confidence": 0.9968,
-      "segmentation_pct": 3.43
+      "is_wound": false,
+      "confidence": 0.0048,
+      "segmentation_pct": 0.0
     },
     {
       "image": "145_1.jpg",
-      "is_wound": true,
-      "confidence": 0.9808,
-      "segmentation_pct": 3.86
+      "is_wound": false,
+      "confidence": 0.0198,
+      "segmentation_pct": 0.0
     },
     {
       "image": "14_0.jpg",
       "is_wound": true,
-      "confidence": 0.9997,
-      "segmentation_pct": 1.89
+      "confidence": 0.9995,
+      "segmentation_pct": 0.0
     },
     {
       "image": "151_0.jpg",
       "is_wound": true,
-      "confidence": 0.9996,
-      "segmentation_pct": 8.53
+      "confidence": 0.9998,
+      "segmentation_pct": 0.0
     },
     {
       "image": "17_0.jpg",
       "is_wound": true,
-      "confidence": 0.9998,
-      "segmentation_pct": 8.19
+      "confidence": 0.9997,
+      "segmentation_pct": 0.0
     },
     {
       "image": "19_0.jpg",
       "is_wound": true,
-      "confidence": 0.9995,
-      "segmentation_pct": 8.97
+      "confidence": 0.9999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "23_0.jpg",
       "is_wound": true,
-      "confidence": 0.9995,
-      "segmentation_pct": 3.34
+      "confidence": 0.8854,
+      "segmentation_pct": 0.0
     },
     {
       "image": "23_1.jpg",
       "is_wound": true,
-      "confidence": 0.9987,
-      "segmentation_pct": 2.53
+      "confidence": 0.8906,
+      "segmentation_pct": 0.0
     },
     {
       "image": "27_0.jpg",
       "is_wound": true,
       "confidence": 0.9997,
-      "segmentation_pct": 10.85
+      "segmentation_pct": 0.0
     },
     {
       "image": "2_0.jpg",
       "is_wound": true,
-      "confidence": 0.9978,
-      "segmentation_pct": 5.17
+      "confidence": 0.9995,
+      "segmentation_pct": 0.0
     },
     {
       "image": "33_0.jpg",
       "is_wound": true,
-      "confidence": 0.9981,
-      "segmentation_pct": 3.53
+      "confidence": 0.9884,
+      "segmentation_pct": 0.0
     },
     {
       "image": "35_0.jpg",
       "is_wound": true,
-      "confidence": 0.9987,
-      "segmentation_pct": 8.44
+      "confidence": 0.9997,
+      "segmentation_pct": 0.0
     },
     {
       "image": "39_0.jpg",
       "is_wound": true,
-      "confidence": 0.9997,
-      "segmentation_pct": 1.18
+      "confidence": 0.9996,
+      "segmentation_pct": 0.0
     },
     {
       "image": "40_0.jpg",
       "is_wound": true,
-      "confidence": 0.9997,
-      "segmentation_pct": 7.92
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "45_0.jpg",
       "is_wound": false,
-      "confidence": 0.0044,
-      "segmentation_pct": 1.46
+      "confidence": 0.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "45_1.jpg",
       "is_wound": true,
-      "confidence": 0.9643,
-      "segmentation_pct": 4.54
+      "confidence": 0.8829,
+      "segmentation_pct": 0.0
     },
     {
       "image": "48_0.jpg",
       "is_wound": true,
       "confidence": 0.9995,
-      "segmentation_pct": 1.21
+      "segmentation_pct": 0.0
     },
     {
       "image": "52_0.jpg",
       "is_wound": true,
-      "confidence": 0.9853,
-      "segmentation_pct": 8.6
+      "confidence": 0.9975,
+      "segmentation_pct": 0.0
     },
     {
       "image": "56_0.jpg",
-      "is_wound": true,
-      "confidence": 0.9931,
-      "segmentation_pct": 6.32
+      "is_wound": false,
+      "confidence": 0.0045,
+      "segmentation_pct": 0.0
     },
     {
       "image": "56_1.jpg",
       "is_wound": true,
-      "confidence": 0.9992,
-      "segmentation_pct": 4.83
+      "confidence": 0.999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "56_2.jpg",
       "is_wound": true,
-      "confidence": 0.9999,
-      "segmentation_pct": 1.1
+      "confidence": 0.9972,
+      "segmentation_pct": 0.0
     },
     {
       "image": "61_0.jpg",
       "is_wound": true,
-      "confidence": 0.9994,
-      "segmentation_pct": 2.77
+      "confidence": 0.9993,
+      "segmentation_pct": 0.0
     },
     {
       "image": "62_0.jpg",
       "is_wound": true,
-      "confidence": 0.9996,
-      "segmentation_pct": 3.6
+      "confidence": 0.9978,
+      "segmentation_pct": 0.0
     },
     {
       "image": "65_0.jpg",
       "is_wound": true,
-      "confidence": 0.9995,
-      "segmentation_pct": 0.86
+      "confidence": 0.9986,
+      "segmentation_pct": 0.0
     },
     {
       "image": "65_1.jpg",
       "is_wound": true,
-      "confidence": 0.9998,
-      "segmentation_pct": 11.05
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "6_0.jpg",
       "is_wound": true,
-      "confidence": 0.9994,
-      "segmentation_pct": 12.59
+      "confidence": 0.995,
+      "segmentation_pct": 0.0
     },
     {
       "image": "70_0.jpg",
-      "is_wound": true,
-      "confidence": 0.9992,
-      "segmentation_pct": 13.29
+      "is_wound": false,
+      "confidence": 0.4231,
+      "segmentation_pct": 0.0
     },
     {
       "image": "70_1.jpg",
       "is_wound": true,
-      "confidence": 0.9995,
-      "segmentation_pct": 9.14
+      "confidence": 0.9823,
+      "segmentation_pct": 0.0
     },
     {
       "image": "82_0.jpg",
-      "is_wound": true,
-      "confidence": 0.9577,
-      "segmentation_pct": 4.57
+      "is_wound": false,
+      "confidence": 0.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "82_1.jpg",
-      "is_wound": true,
-      "confidence": 0.8897,
-      "segmentation_pct": 9.72
+      "is_wound": false,
+      "confidence": 0.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "8_0.jpg",
       "is_wound": true,
-      "confidence": 0.9869,
-      "segmentation_pct": 2.85
+      "confidence": 0.996,
+      "segmentation_pct": 0.0
     },
     {
       "image": "100.jpg",
       "is_wound": false,
-      "confidence": 0.0006,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "76.jpg",
       "is_wound": false,
-      "confidence": 0.0014,
-      "segmentation_pct": 0.06
+      "confidence": 0.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "77.jpg",
       "is_wound": false,
-      "confidence": 0.0025,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "78.jpg",
       "is_wound": false,
-      "confidence": 0.0008,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "79.jpg",
       "is_wound": false,
-      "confidence": 0.0005,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "80.jpg",
       "is_wound": false,
-      "confidence": 0.0004,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "81.jpg",
       "is_wound": false,
-      "confidence": 0.0008,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "82.jpg",
       "is_wound": false,
-      "confidence": 0.0003,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "83.jpg",
       "is_wound": false,
-      "confidence": 0.0001,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "84.jpg",
-      "is_wound": true,
-      "confidence": 0.7011,
+      "is_wound": false,
+      "confidence": 0.0561,
       "segmentation_pct": 0.0
     },
     {
       "image": "85.jpg",
       "is_wound": false,
-      "confidence": 0.0001,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "86.jpg",
       "is_wound": false,
-      "confidence": 0.0001,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "87.jpg",
       "is_wound": false,
-      "confidence": 0.0002,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "88.jpg",
       "is_wound": false,
-      "confidence": 0.0001,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "89.jpg",
       "is_wound": false,
-      "confidence": 0.0001,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "90.jpg",
       "is_wound": false,
-      "confidence": 0.0087,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "91.jpg",
       "is_wound": false,
-      "confidence": 0.0003,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "92.jpg",
       "is_wound": false,
-      "confidence": 0.0017,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "93.jpg",
       "is_wound": false,
-      "confidence": 0.0001,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "94.jpg",
       "is_wound": false,
-      "confidence": 0.0001,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "95.jpg",
       "is_wound": false,
-      "confidence": 0.0006,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "96.jpg",
       "is_wound": false,
-      "confidence": 0.0357,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "97.jpg",
       "is_wound": false,
-      "confidence": 0.0301,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "98.jpg",
       "is_wound": false,
-      "confidence": 0.0009,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "99.jpg",
       "is_wound": false,
-      "confidence": 0.0226,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "100_0.jpg",
       "is_wound": true,
-      "confidence": 0.9928,
-      "segmentation_pct": 2.86
+      "confidence": 0.9998,
+      "segmentation_pct": 0.0
     },
     {
       "image": "12_0.jpg",
       "is_wound": true,
-      "confidence": 0.9994,
-      "segmentation_pct": 12.19
+      "confidence": 0.9265,
+      "segmentation_pct": 0.0
     },
     {
       "image": "15_0.jpg",
       "is_wound": true,
-      "confidence": 0.9928,
-      "segmentation_pct": 19.33
+      "confidence": 0.9729,
+      "segmentation_pct": 0.0
     },
     {
       "image": "18_0.jpg",
       "is_wound": true,
-      "confidence": 0.9755,
-      "segmentation_pct": 7.91
+      "confidence": 0.9999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "18_1.jpg",
       "is_wound": true,
-      "confidence": 0.9653,
-      "segmentation_pct": 2.17
+      "confidence": 0.998,
+      "segmentation_pct": 0.0
     },
     {
       "image": "24_0.jpg",
       "is_wound": true,
-      "confidence": 0.9995,
-      "segmentation_pct": 13.05
+      "confidence": 0.9999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "26_0.jpg",
-      "is_wound": false,
-      "confidence": 0.2615,
-      "segmentation_pct": 3.03
+      "is_wound": true,
+      "confidence": 0.7243,
+      "segmentation_pct": 0.0
     },
     {
       "image": "26_1.jpg",
-      "is_wound": false,
-      "confidence": 0.0277,
-      "segmentation_pct": 6.05
+      "is_wound": true,
+      "confidence": 0.5664,
+      "segmentation_pct": 0.0
     },
     {
       "image": "2_0.jpg",
-      "is_wound": true,
-      "confidence": 0.9972,
-      "segmentation_pct": 1.01
+      "is_wound": false,
+      "confidence": 0.3941,
+      "segmentation_pct": 0.0
     },
     {
       "image": "31_0.jpg",
       "is_wound": true,
-      "confidence": 0.9987,
-      "segmentation_pct": 3.82
+      "confidence": 0.9997,
+      "segmentation_pct": 0.0
     },
     {
       "image": "32_0.jpg",
       "is_wound": true,
-      "confidence": 0.9713,
-      "segmentation_pct": 0.98
+      "confidence": 0.6626,
+      "segmentation_pct": 0.0
     },
     {
       "image": "49_0.jpg",
       "is_wound": true,
-      "confidence": 0.9886,
-      "segmentation_pct": 9.91
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "49_1.jpg",
       "is_wound": true,
-      "confidence": 0.998,
-      "segmentation_pct": 2.77
+      "confidence": 0.9999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "49_2.jpg",
       "is_wound": true,
-      "confidence": 0.5606,
-      "segmentation_pct": 11.5
+      "confidence": 0.9966,
+      "segmentation_pct": 0.0
     },
     {
       "image": "49_3.jpg",
-      "is_wound": false,
-      "confidence": 0.3539,
-      "segmentation_pct": 3.0
+      "is_wound": true,
+      "confidence": 0.9998,
+      "segmentation_pct": 0.0
     },
     {
       "image": "51_0.jpg",
       "is_wound": true,
-      "confidence": 0.9773,
-      "segmentation_pct": 1.19
+      "confidence": 0.7953,
+      "segmentation_pct": 0.0
     },
     {
       "image": "53_0.jpg",
       "is_wound": true,
-      "confidence": 0.9992,
-      "segmentation_pct": 5.01
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "58_0.jpg",
       "is_wound": true,
-      "confidence": 0.9977,
-      "segmentation_pct": 0.43
+      "confidence": 0.8612,
+      "segmentation_pct": 0.0
     },
     {
       "image": "59_0.jpg",
-      "is_wound": true,
-      "confidence": 0.9987,
-      "segmentation_pct": 0.79
+      "is_wound": false,
+      "confidence": 0.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "59_1.jpg",
       "is_wound": true,
-      "confidence": 0.9903,
-      "segmentation_pct": 2.06
+      "confidence": 0.9873,
+      "segmentation_pct": 0.0
     },
     {
       "image": "75_0.jpg",
       "is_wound": false,
-      "confidence": 0.411,
+      "confidence": 0.2385,
       "segmentation_pct": 0.0
     },
     {
       "image": "75_1.jpg",
       "is_wound": true,
-      "confidence": 0.9978,
-      "segmentation_pct": 7.82
+      "confidence": 0.9999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "75_2.jpg",
       "is_wound": true,
-      "confidence": 0.9666,
-      "segmentation_pct": 11.26
+      "confidence": 0.9998,
+      "segmentation_pct": 0.0
     },
     {
       "image": "75_3.jpg",
       "is_wound": true,
-      "confidence": 0.9782,
+      "confidence": 0.9992,
       "segmentation_pct": 0.0
     },
     {
       "image": "79_0.jpg",
       "is_wound": true,
-      "confidence": 0.9997,
-      "segmentation_pct": 6.71
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "81_0.jpg",
       "is_wound": true,
-      "confidence": 0.9995,
-      "segmentation_pct": 8.09
+      "confidence": 0.9999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "81_1.jpg",
       "is_wound": true,
-      "confidence": 0.9996,
-      "segmentation_pct": 3.46
+      "confidence": 0.9998,
+      "segmentation_pct": 0.0
     },
     {
       "image": "81_2.jpg",
       "is_wound": true,
-      "confidence": 0.9955,
-      "segmentation_pct": 12.9
+      "confidence": 0.9999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "81_3.jpg",
       "is_wound": true,
-      "confidence": 0.9996,
-      "segmentation_pct": 0.65
+      "confidence": 0.9999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "82_0.jpg",
       "is_wound": true,
-      "confidence": 0.9994,
-      "segmentation_pct": 9.55
+      "confidence": 0.9864,
+      "segmentation_pct": 0.0
     },
     {
       "image": "82_1.jpg",
       "is_wound": true,
-      "confidence": 0.9973,
-      "segmentation_pct": 4.53
+      "confidence": 0.5015,
+      "segmentation_pct": 0.0
     },
     {
       "image": "82_2.jpg",
       "is_wound": true,
-      "confidence": 0.9991,
-      "segmentation_pct": 4.72
+      "confidence": 0.8974,
+      "segmentation_pct": 0.0
     },
     {
       "image": "82_3.jpg",
-      "is_wound": true,
-      "confidence": 0.987,
+      "is_wound": false,
+      "confidence": 0.1161,
       "segmentation_pct": 0.0
     },
     {
       "image": "90_0.jpg",
       "is_wound": true,
-      "confidence": 0.9997,
-      "segmentation_pct": 10.2
+      "confidence": 0.9945,
+      "segmentation_pct": 0.0
     },
     {
       "image": "100_0.jpg",
-      "is_wound": true,
-      "confidence": 0.999,
-      "segmentation_pct": 2.76
+      "is_wound": false,
+      "confidence": 0.3616,
+      "segmentation_pct": 0.0
     },
     {
       "image": "104_0.jpg",
       "is_wound": true,
-      "confidence": 0.9948,
-      "segmentation_pct": 2.14
+      "confidence": 0.9733,
+      "segmentation_pct": 0.0
     },
     {
       "image": "111_0.jpg",
       "is_wound": true,
-      "confidence": 0.8063,
-      "segmentation_pct": 3.04
+      "confidence": 0.813,
+      "segmentation_pct": 0.0
     },
     {
       "image": "111_1.jpg",
       "is_wound": false,
-      "confidence": 0.0002,
-      "segmentation_pct": 2.69
+      "confidence": 0.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "118_0.jpg",
       "is_wound": true,
-      "confidence": 0.9463,
-      "segmentation_pct": 6.85
+      "confidence": 0.9805,
+      "segmentation_pct": 0.0
     },
     {
       "image": "121_0.jpg",
       "is_wound": true,
-      "confidence": 0.9863,
-      "segmentation_pct": 1.61
+      "confidence": 0.9626,
+      "segmentation_pct": 0.0
     },
     {
       "image": "124_0.jpg",
       "is_wound": false,
-      "confidence": 0.2853,
-      "segmentation_pct": 6.04
+      "confidence": 0.0723,
+      "segmentation_pct": 0.0
     },
     {
       "image": "128_0.jpg",
-      "is_wound": true,
-      "confidence": 0.589,
-      "segmentation_pct": 15.4
+      "is_wound": false,
+      "confidence": 0.0001,
+      "segmentation_pct": 0.0
     },
     {
       "image": "14_0.jpg",
       "is_wound": true,
-      "confidence": 0.9975,
-      "segmentation_pct": 0.33
+      "confidence": 0.9623,
+      "segmentation_pct": 0.0
     },
     {
       "image": "16_0.jpg",
-      "is_wound": true,
-      "confidence": 0.984,
-      "segmentation_pct": 3.44
+      "is_wound": false,
+      "confidence": 0.0001,
+      "segmentation_pct": 0.0
     },
     {
       "image": "16_1.jpg",
       "is_wound": false,
-      "confidence": 0.3856,
+      "confidence": 0.0001,
       "segmentation_pct": 0.0
     },
     {
       "image": "19_0.jpg",
-      "is_wound": true,
-      "confidence": 0.9096,
+      "is_wound": false,
+      "confidence": 0.0116,
       "segmentation_pct": 0.0
     },
     {
       "image": "19_1(1).jpg",
-      "is_wound": true,
-      "confidence": 0.9326,
+      "is_wound": false,
+      "confidence": 0.0005,
       "segmentation_pct": 0.0
     },
     {
       "image": "19_1.jpg",
-      "is_wound": true,
-      "confidence": 0.9326,
+      "is_wound": false,
+      "confidence": 0.0005,
       "segmentation_pct": 0.0
     },
     {
       "image": "24_0(1).jpg",
       "is_wound": true,
-      "confidence": 0.9959,
-      "segmentation_pct": 2.2
+      "confidence": 0.9147,
+      "segmentation_pct": 0.0
     },
     {
       "image": "24_0.jpg",
       "is_wound": true,
-      "confidence": 0.9959,
-      "segmentation_pct": 2.2
+      "confidence": 0.9147,
+      "segmentation_pct": 0.0
     },
     {
       "image": "24_1(1).jpg",
       "is_wound": false,
-      "confidence": 0.0001,
-      "segmentation_pct": 1.68
+      "confidence": 0.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "24_1.jpg",
       "is_wound": false,
-      "confidence": 0.0001,
-      "segmentation_pct": 1.68
+      "confidence": 0.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "26_0.jpg",
       "is_wound": true,
-      "confidence": 0.7255,
-      "segmentation_pct": 2.45
+      "confidence": 0.9745,
+      "segmentation_pct": 0.0
     },
     {
       "image": "26_1.jpg",
       "is_wound": true,
-      "confidence": 0.674,
-      "segmentation_pct": 1.74
+      "confidence": 0.95,
+      "segmentation_pct": 0.0
     },
     {
       "image": "29_0.jpg",
       "is_wound": true,
-      "confidence": 0.9976,
-      "segmentation_pct": 4.31
+      "confidence": 0.9928,
+      "segmentation_pct": 0.0
     },
     {
       "image": "29_1.jpg",
       "is_wound": false,
-      "confidence": 0.4443,
-      "segmentation_pct": 0.07
+      "confidence": 0.193,
+      "segmentation_pct": 0.0
     },
     {
       "image": "47_0.jpg",
       "is_wound": true,
-      "confidence": 0.8267,
-      "segmentation_pct": 0.73
+      "confidence": 0.6902,
+      "segmentation_pct": 0.0
     },
     {
       "image": "49_0.jpg",
       "is_wound": true,
-      "confidence": 0.9707,
-      "segmentation_pct": 2.54
+      "confidence": 0.9312,
+      "segmentation_pct": 0.0
     },
     {
       "image": "49_1(1).jpg",
       "is_wound": true,
-      "confidence": 0.9977,
-      "segmentation_pct": 0.33
+      "confidence": 0.988,
+      "segmentation_pct": 0.0
     },
     {
       "image": "49_1.jpg",
       "is_wound": true,
-      "confidence": 0.9977,
-      "segmentation_pct": 0.33
+      "confidence": 0.988,
+      "segmentation_pct": 0.0
     },
     {
       "image": "4_0.jpg",
       "is_wound": false,
-      "confidence": 0.0108,
-      "segmentation_pct": 1.51
+      "confidence": 0.0009,
+      "segmentation_pct": 0.0
     },
     {
       "image": "51_0.jpg",
       "is_wound": true,
-      "confidence": 0.7541,
-      "segmentation_pct": 0.9
+      "confidence": 0.7202,
+      "segmentation_pct": 0.0
     },
     {
       "image": "51_1.jpg",
-      "is_wound": true,
-      "confidence": 0.9802,
-      "segmentation_pct": 1.13
+      "is_wound": false,
+      "confidence": 0.1459,
+      "segmentation_pct": 0.0
     },
     {
       "image": "57_0.jpg",
       "is_wound": true,
-      "confidence": 0.8971,
-      "segmentation_pct": 2.27
+      "confidence": 0.9969,
+      "segmentation_pct": 0.0
     },
     {
       "image": "66_0.jpg",
-      "is_wound": true,
-      "confidence": 0.9898,
+      "is_wound": false,
+      "confidence": 0.2409,
       "segmentation_pct": 0.0
     },
     {
       "image": "68_0.jpg",
       "is_wound": false,
-      "confidence": 0.0011,
+      "confidence": 0.0,
       "segmentation_pct": 0.0
     },
     {
       "image": "68_1.jpg",
       "is_wound": false,
-      "confidence": 0.3458,
-      "segmentation_pct": 0.8
+      "confidence": 0.0002,
+      "segmentation_pct": 0.0
     },
     {
       "image": "74_0.jpg",
-      "is_wound": true,
-      "confidence": 0.7774,
-      "segmentation_pct": 4.54
+      "is_wound": false,
+      "confidence": 0.0023,
+      "segmentation_pct": 0.0
     },
     {
       "image": "76_0.jpg",
       "is_wound": true,
-      "confidence": 0.764,
-      "segmentation_pct": 4.07
+      "confidence": 0.8899,
+      "segmentation_pct": 0.0
     },
     {
       "image": "76_1.jpg",
       "is_wound": true,
-      "confidence": 0.9753,
-      "segmentation_pct": 1.79
+      "confidence": 0.6948,
+      "segmentation_pct": 0.0
     },
     {
       "image": "76_2.jpg",
       "is_wound": true,
-      "confidence": 0.9975,
-      "segmentation_pct": 9.26
+      "confidence": 0.7944,
+      "segmentation_pct": 0.0
     },
     {
       "image": "76_3.jpg",
       "is_wound": true,
-      "confidence": 0.9852,
-      "segmentation_pct": 1.87
+      "confidence": 0.9555,
+      "segmentation_pct": 0.0
     },
     {
       "image": "76_4.jpg",
       "is_wound": true,
-      "confidence": 0.995,
-      "segmentation_pct": 2.05
+      "confidence": 0.9946,
+      "segmentation_pct": 0.0
     },
     {
       "image": "76_5.jpg",
       "is_wound": true,
-      "confidence": 0.9995,
-      "segmentation_pct": 4.08
+      "confidence": 0.9997,
+      "segmentation_pct": 0.0
     },
     {
       "image": "76_6.jpg",
       "is_wound": true,
-      "confidence": 0.9842,
-      "segmentation_pct": 5.32
+      "confidence": 0.9997,
+      "segmentation_pct": 0.0
     },
     {
       "image": "7_0.jpg",
-      "is_wound": false,
-      "confidence": 0.4062,
-      "segmentation_pct": 0.89
+      "is_wound": true,
+      "confidence": 0.8725,
+      "segmentation_pct": 0.0
     },
     {
       "image": "83_0.jpg",
       "is_wound": true,
-      "confidence": 0.9954,
-      "segmentation_pct": 2.53
+      "confidence": 0.9941,
+      "segmentation_pct": 0.0
     },
     {
       "image": "92_0.jpg",
       "is_wound": false,
-      "confidence": 0.3588,
-      "segmentation_pct": 5.31
+      "confidence": 0.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "99_0.jpg",
       "is_wound": true,
-      "confidence": 0.999,
-      "segmentation_pct": 2.81
+      "confidence": 0.9999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "9_0.jpg",
       "is_wound": true,
-      "confidence": 0.9995,
-      "segmentation_pct": 2.36
+      "confidence": 0.788,
+      "segmentation_pct": 0.0
     },
     {
       "image": "104_0.jpg",
       "is_wound": true,
-      "confidence": 0.9996,
+      "confidence": 0.9969,
       "segmentation_pct": 0.0
     },
     {
       "image": "108_0.jpg",
       "is_wound": true,
-      "confidence": 0.9993,
-      "segmentation_pct": 6.09
+      "confidence": 0.9994,
+      "segmentation_pct": 0.0
     },
     {
       "image": "108_1.jpg",
       "is_wound": true,
-      "confidence": 0.9997,
-      "segmentation_pct": 12.26
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "10_0.jpg",
       "is_wound": true,
-      "confidence": 0.9989,
-      "segmentation_pct": 11.01
+      "confidence": 0.9993,
+      "segmentation_pct": 0.0
     },
     {
       "image": "11_0.jpg",
       "is_wound": true,
-      "confidence": 0.9997,
-      "segmentation_pct": 15.85
+      "confidence": 0.9999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "11_1.jpg",
       "is_wound": true,
-      "confidence": 0.9997,
-      "segmentation_pct": 8.17
+      "confidence": 0.9964,
+      "segmentation_pct": 0.0
     },
     {
       "image": "11_2.jpg",
       "is_wound": true,
-      "confidence": 0.9994,
-      "segmentation_pct": 4.17
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "11_3.jpg",
       "is_wound": true,
-      "confidence": 0.9979,
-      "segmentation_pct": 2.87
+      "confidence": 0.9158,
+      "segmentation_pct": 0.0
     },
     {
       "image": "11_4.jpg",
       "is_wound": true,
-      "confidence": 0.9998,
-      "segmentation_pct": 3.45
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "11_5.jpg",
       "is_wound": true,
-      "confidence": 0.9992,
-      "segmentation_pct": 6.46
+      "confidence": 0.9999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "121_0.jpg",
       "is_wound": true,
-      "confidence": 0.9996,
-      "segmentation_pct": 14.99
+      "confidence": 0.999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "134_0.jpg",
       "is_wound": true,
-      "confidence": 0.9996,
-      "segmentation_pct": 2.1
+      "confidence": 0.8827,
+      "segmentation_pct": 0.0
     },
     {
       "image": "134_1.jpg",
       "is_wound": true,
-      "confidence": 0.9993,
-      "segmentation_pct": 2.63
+      "confidence": 0.9907,
+      "segmentation_pct": 0.0
     },
     {
       "image": "138_0.jpg",
       "is_wound": true,
-      "confidence": 0.999,
-      "segmentation_pct": 11.46
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "138_1.jpg",
       "is_wound": true,
-      "confidence": 0.9981,
-      "segmentation_pct": 8.51
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "142_0.jpg",
       "is_wound": true,
-      "confidence": 0.9997,
-      "segmentation_pct": 6.65
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "145_0.jpg",
       "is_wound": true,
-      "confidence": 0.9993,
-      "segmentation_pct": 2.38
+      "confidence": 0.9997,
+      "segmentation_pct": 0.0
     },
     {
       "image": "148_0.jpg",
       "is_wound": true,
-      "confidence": 0.9998,
-      "segmentation_pct": 9.5
+      "confidence": 0.9997,
+      "segmentation_pct": 0.0
     },
     {
       "image": "151_0.jpg",
       "is_wound": true,
-      "confidence": 0.9995,
-      "segmentation_pct": 17.62
+      "confidence": 0.9791,
+      "segmentation_pct": 0.0
     },
     {
       "image": "151_1.jpg",
       "is_wound": true,
-      "confidence": 0.9997,
-      "segmentation_pct": 18.0
+      "confidence": 0.9989,
+      "segmentation_pct": 0.0
     },
     {
       "image": "156_0.jpg",
       "is_wound": true,
-      "confidence": 0.9996,
-      "segmentation_pct": 8.08
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "156_1.jpg",
       "is_wound": true,
-      "confidence": 0.955,
-      "segmentation_pct": 5.62
+      "confidence": 0.9957,
+      "segmentation_pct": 0.0
     },
     {
       "image": "17_0.jpg",
       "is_wound": true,
-      "confidence": 0.9998,
-      "segmentation_pct": 6.37
+      "confidence": 0.9988,
+      "segmentation_pct": 0.0
     },
     {
       "image": "17_1.jpg",
       "is_wound": true,
-      "confidence": 0.9981,
-      "segmentation_pct": 2.56
+      "confidence": 0.5462,
+      "segmentation_pct": 0.0
     },
     {
       "image": "25_0.jpg",
       "is_wound": true,
-      "confidence": 0.9998,
-      "segmentation_pct": 4.68
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "25_1.jpg",
-      "is_wound": true,
-      "confidence": 0.9946,
-      "segmentation_pct": 1.15
+      "is_wound": false,
+      "confidence": 0.4143,
+      "segmentation_pct": 0.0
     },
     {
       "image": "25_2.jpg",
       "is_wound": true,
-      "confidence": 0.9998,
-      "segmentation_pct": 5.18
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "25_3.jpg",
       "is_wound": true,
-      "confidence": 0.9998,
-      "segmentation_pct": 2.38
+      "confidence": 0.9996,
+      "segmentation_pct": 0.0
     },
     {
       "image": "2_0.jpg",
       "is_wound": true,
-      "confidence": 0.9995,
-      "segmentation_pct": 14.11
+      "confidence": 0.8811,
+      "segmentation_pct": 0.0
     },
     {
       "image": "37_0.jpg",
       "is_wound": true,
-      "confidence": 0.9994,
-      "segmentation_pct": 2.57
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "37_1.jpg",
       "is_wound": true,
-      "confidence": 0.9989,
-      "segmentation_pct": 1.71
+      "confidence": 0.9997,
+      "segmentation_pct": 0.0
     },
     {
       "image": "37_2.jpg",
       "is_wound": true,
-      "confidence": 0.9991,
+      "confidence": 0.9994,
       "segmentation_pct": 0.0
     },
     {
       "image": "37_3.jpg",
       "is_wound": true,
-      "confidence": 0.9988,
-      "segmentation_pct": 0.15
+      "confidence": 0.9627,
+      "segmentation_pct": 0.0
     },
     {
       "image": "42_0.jpg",
       "is_wound": true,
-      "confidence": 0.9996,
-      "segmentation_pct": 8.55
+      "confidence": 0.9533,
+      "segmentation_pct": 0.0
     },
     {
       "image": "42_1.jpg",
       "is_wound": true,
-      "confidence": 0.9995,
-      "segmentation_pct": 3.53
+      "confidence": 0.9947,
+      "segmentation_pct": 0.0
     },
     {
       "image": "42_2.jpg",
-      "is_wound": true,
-      "confidence": 0.9652,
-      "segmentation_pct": 23.92
+      "is_wound": false,
+      "confidence": 0.0001,
+      "segmentation_pct": 0.0
     },
     {
       "image": "42_3.jpg",
-      "is_wound": true,
-      "confidence": 0.9917,
-      "segmentation_pct": 14.87
+      "is_wound": false,
+      "confidence": 0.001,
+      "segmentation_pct": 0.0
     },
     {
       "image": "47_0.jpg",
       "is_wound": true,
-      "confidence": 0.9989,
-      "segmentation_pct": 13.03
+      "confidence": 0.9966,
+      "segmentation_pct": 0.0
     },
     {
       "image": "47_1.jpg",
-      "is_wound": true,
-      "confidence": 0.9972,
-      "segmentation_pct": 5.44
+      "is_wound": false,
+      "confidence": 0.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "47_2.jpg",
       "is_wound": true,
-      "confidence": 0.999,
-      "segmentation_pct": 13.14
+      "confidence": 0.6455,
+      "segmentation_pct": 0.0
     },
     {
       "image": "51_0.jpg",
-      "is_wound": true,
-      "confidence": 0.992,
-      "segmentation_pct": 1.52
+      "is_wound": false,
+      "confidence": 0.0437,
+      "segmentation_pct": 0.0
     },
     {
       "image": "51_1.jpg",
       "is_wound": true,
-      "confidence": 0.9998,
-      "segmentation_pct": 1.42
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "53_0.jpg",
       "is_wound": true,
-      "confidence": 0.9996,
-      "segmentation_pct": 3.89
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "53_1.jpg",
       "is_wound": true,
-      "confidence": 0.9998,
-      "segmentation_pct": 5.7
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "53_2.jpg",
       "is_wound": true,
-      "confidence": 0.9967,
-      "segmentation_pct": 1.3
+      "confidence": 0.8655,
+      "segmentation_pct": 0.0
     },
     {
       "image": "53_3.jpg",
       "is_wound": true,
-      "confidence": 0.9994,
-      "segmentation_pct": 1.61
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "53_4.jpg",
       "is_wound": true,
-      "confidence": 0.9989,
-      "segmentation_pct": 0.85
+      "confidence": 0.9962,
+      "segmentation_pct": 0.0
     },
     {
       "image": "56_0.jpg",
       "is_wound": true,
-      "confidence": 0.7183,
+      "confidence": 0.8745,
       "segmentation_pct": 0.0
     },
     {
       "image": "56_1.jpg",
       "is_wound": true,
-      "confidence": 0.9996,
-      "segmentation_pct": 1.82
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "61_0.jpg",
       "is_wound": true,
-      "confidence": 0.9993,
-      "segmentation_pct": 3.25
+      "confidence": 0.9999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "67_0.jpg",
       "is_wound": true,
-      "confidence": 0.9996,
-      "segmentation_pct": 1.86
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "67_1.jpg",
       "is_wound": true,
-      "confidence": 0.9996,
-      "segmentation_pct": 5.15
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     },
     {
       "image": "75_0.jpg",
       "is_wound": true,
-      "confidence": 0.995,
-      "segmentation_pct": 0.96
+      "confidence": 0.773,
+      "segmentation_pct": 0.0
     },
     {
       "image": "75_1.jpg",
       "is_wound": true,
-      "confidence": 0.9998,
-      "segmentation_pct": 13.46
+      "confidence": 0.9999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "78_0.jpg",
       "is_wound": true,
-      "confidence": 0.664,
-      "segmentation_pct": 3.67
+      "confidence": 0.8191,
+      "segmentation_pct": 0.0
     },
     {
       "image": "78_1.jpg",
       "is_wound": true,
-      "confidence": 0.9947,
-      "segmentation_pct": 4.44
+      "confidence": 0.9923,
+      "segmentation_pct": 0.0
     },
     {
       "image": "78_2.jpg",
       "is_wound": true,
       "confidence": 0.9993,
-      "segmentation_pct": 0.44
+      "segmentation_pct": 0.0
     },
     {
       "image": "78_3.jpg",
       "is_wound": true,
-      "confidence": 0.9914,
-      "segmentation_pct": 7.28
+      "confidence": 0.999,
+      "segmentation_pct": 0.0
     },
     {
       "image": "7_0.jpg",
       "is_wound": true,
-      "confidence": 0.9995,
-      "segmentation_pct": 0.84
+      "confidence": 0.997,
+      "segmentation_pct": 0.0
     },
     {
       "image": "81_0.jpg",
       "is_wound": true,
-      "confidence": 0.9996,
-      "segmentation_pct": 5.4
+      "confidence": 0.9998,
+      "segmentation_pct": 0.0
     },
     {
       "image": "81_1.jpg",
       "is_wound": true,
-      "confidence": 0.9978,
-      "segmentation_pct": 1.16
+      "confidence": 0.7072,
+      "segmentation_pct": 0.0
     },
     {
       "image": "88_0.jpg",
       "is_wound": true,
-      "confidence": 0.9997,
-      "segmentation_pct": 2.78
+      "confidence": 1.0,
+      "segmentation_pct": 0.0
     }
   ]
 }

@@ -18,6 +18,11 @@ MODELS_CONFIG: Dict[str, Dict[str, str]] = {
         "display_name": "CNN (4-channel)",
         "color": "#1f77b4"
     },
+    "CNN_3ch": {
+        "metrics_file": "wound_classifier_cnn_ablation_3channel_metrics.json",
+        "display_name": "CNN (3-channel, ablation)",
+        "color": "#9467bd"
+    },
     "Swin": {
         "metrics_file": "wound_classifier_swin_best_model_metrics.json",
         "display_name": "Swin-B (4-channel)",
@@ -29,7 +34,7 @@ MODELS_CONFIG: Dict[str, Dict[str, str]] = {
         "color": "#2ca02c"
     },
     "ViT_3ch": {
-        "metrics_file": "wound_classifier_ablation_3channel_metrics.json",
+        "metrics_file": "wound_classifier_ablation_3channel_best_model_metrics.json",
         "display_name": "ViT-B/16 (3-channel, ablation)",
         "color": "#d62728"
     }
