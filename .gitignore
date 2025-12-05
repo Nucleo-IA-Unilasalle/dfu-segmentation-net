@@ -9,3 +9,8 @@ wound_classifier_best_model.pth
 wound_classifier_vit_best_model.pth
 mlruns
 venv
+
+# Large model files (>100MB)
+UNet_best_model.pth
+wound_classifier_ablation_3channel_best_model.pth
+wound_classifier_swin_best_model.pth
