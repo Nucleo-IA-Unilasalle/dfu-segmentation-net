@@ -559,6 +559,7 @@ def main() -> None:
     """Main training function."""
     # Configuration
     segmentation_model_path = "pretrained_best_efficientnet_b4_unet_model.pth"
+    # Considering changes on the batch size to gain performance.
     batch_size = 16
     learning_rate = 0.001
     num_epochs = 25
@@ -655,6 +656,11 @@ def main() -> None:
     )
     
     # Create dataloaders
+    # Possible improvements for trainment
+    # > batch_size
+    # > num_workers
+    # toggle pin_memory
+    # add prefetch_factor
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=0)
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=0)
     

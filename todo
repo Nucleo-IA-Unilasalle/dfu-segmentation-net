@@ -1,8 +1,0 @@
-examples of results
--image of segmentation net
-model flowchart and diagram
-add citations
-ablation (no masks for verifier)
--remove threshold optim
-
-train 4 models of wound classifier together vit, ablation 3c, swin and cnn and generate figures
