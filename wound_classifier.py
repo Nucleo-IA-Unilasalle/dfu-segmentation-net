@@ -81,7 +81,9 @@ class WoundVerificationDataset(Dataset):
         # Convert to numpy array
         mask_np = mask_pred.squeeze().cpu().numpy()
         return mask_np
-    
+
+    # BUG: This doesn't seem to be identifying already generated masks,
+    # thus regenerating all the masks everytime we try to train
     def _generate_all_masks(self) -> None:
         """Pre-generate all masks and cache them."""
         print("Checking mask cache...")
@@ -559,8 +561,7 @@ def main() -> None:
     """Main training function."""
     # Configuration
     segmentation_model_path = "pretrained_best_efficientnet_b4_unet_model.pth"
-    # Considering changes on the batch size to gain performance.
-    batch_size = 16
+    batch_size = 32
     learning_rate = 0.001
     num_epochs = 25
     image_size = 256
@@ -657,12 +658,21 @@ def main() -> None:
     
     # Create dataloaders
     # Possible improvements for trainment
-    # > batch_size
-    # > num_workers
-    # toggle pin_memory
     # add prefetch_factor
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=0)
-    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=0)
+    num_workers = os.cpu_count() if os.cpu_count() is not None else 2
+    
+    train_loader = DataLoader(
+        train_dataset,
+        batch_size=batch_size,
+        shuffle=True,
+        pin_memory=True,
+        num_workers=num_workers)
+    test_loader = DataLoader(
+        test_dataset,
+        batch_size=batch_size,
+        shuffle=False,
+        pin_memory=True,
+        num_workers=num_workers)
     
     # Create verification model
     print("\nCreating wound verification model...")
