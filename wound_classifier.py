@@ -1,4 +1,5 @@
 import os
+import hashlib
 import json
 import time
 import random
@@ -62,8 +63,11 @@ class WoundVerificationDataset(Dataset):
     
     def _get_cache_path(self, image_path: str) -> str:
         """Get cache file path for a given image path."""
-        # Create a unique cache filename from the image path
-        cache_filename = str(hash(image_path)) + ".npy"
+        # Create a consistent MD5 hash (deterministic) from the path
+        # encode('utf-8') necessary because hashlib works with bytes
+        path_hash = hashlib.md5(image_path.encode('utf-8')).hexdigest()
+        
+        cache_filename = f"{path_hash}.npy"
         return os.path.join(self.cache_dir, cache_filename)
     
     def _generate_mask(self, image_path: str) -> np.ndarray:
