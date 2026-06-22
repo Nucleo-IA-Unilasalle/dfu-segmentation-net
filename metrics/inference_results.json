@@ -3,90 +3,90 @@
     "total_images": 7,
     "successful_inferences": 7,
     "failed_inferences": 0,
-    "wounds_detected": 3,
-    "non_wounds": 4,
-    "average_verification_confidence": 0.3822,
+    "wounds_detected": 5,
+    "non_wounds": 2,
+    "average_verification_confidence": 0.626,
     "average_segmentation_percentage": 1.7432,
     "segmentation_threshold": 0.5,
-    "verification_threshold": 0.4
+    "verification_threshold": 0.5
   },
   "results": [
     {
-      "image_path": "inference_test\\Legs_matter_heel_cracks_foot_ulcere-860x538.jpg",
+      "image_path": "inference_test/Legs_matter_heel_cracks_foot_ulcere-860x538.jpg",
       "image_filename": "Legs_matter_heel_cracks_foot_ulcere-860x538.jpg",
       "is_wound": false,
-      "verification_confidence": 0.1414,
+      "verification_confidence": 0.2489,
       "segmentation_percentage": 0.1129,
       "segmented_pixels": 74,
       "total_pixels": 65536,
       "segmentation_threshold": 0.5,
-      "verification_threshold": 0.4
+      "verification_threshold": 0.5
     },
     {
-      "image_path": "inference_test\\cachorro-e-vertebrado-ou-invertebrado2.jpg",
+      "image_path": "inference_test/cachorro-e-vertebrado-ou-invertebrado2.jpg",
       "image_filename": "cachorro-e-vertebrado-ou-invertebrado2.jpg",
-      "is_wound": false,
-      "verification_confidence": 0.3207,
+      "is_wound": true,
+      "verification_confidence": 0.7052,
       "segmentation_percentage": 0.499,
       "segmented_pixels": 327,
       "total_pixels": 65536,
       "segmentation_threshold": 0.5,
-      "verification_threshold": 0.4
+      "verification_threshold": 0.5
     },
     {
-      "image_path": "inference_test\\diabetic-foot-ulcer-00001.jpg",
+      "image_path": "inference_test/diabetic-foot-ulcer-00001.jpg",
       "image_filename": "diabetic-foot-ulcer-00001.jpg",
       "is_wound": true,
-      "verification_confidence": 0.5794,
+      "verification_confidence": 0.688,
       "segmentation_percentage": 2.7237,
       "segmented_pixels": 1785,
       "total_pixels": 65536,
       "segmentation_threshold": 0.5,
-      "verification_threshold": 0.4
+      "verification_threshold": 0.5
     },
     {
-      "image_path": "inference_test\\gr2_lrg.jpg",
+      "image_path": "inference_test/gr2_lrg.jpg",
       "image_filename": "gr2_lrg.jpg",
       "is_wound": true,
-      "verification_confidence": 0.6585,
+      "verification_confidence": 0.7529,
       "segmentation_percentage": 0.6775,
       "segmented_pixels": 444,
       "total_pixels": 65536,
       "segmentation_threshold": 0.5,
-      "verification_threshold": 0.4
+      "verification_threshold": 0.5
     },
     {
-      "image_path": "inference_test\\images (1).jpeg",
+      "image_path": "inference_test/images (1).jpeg",
       "image_filename": "images (1).jpeg",
       "is_wound": true,
-      "verification_confidence": 0.748,
+      "verification_confidence": 0.8462,
       "segmentation_percentage": 6.6605,
       "segmented_pixels": 4365,
       "total_pixels": 65536,
       "segmentation_threshold": 0.5,
-      "verification_threshold": 0.4
+      "verification_threshold": 0.5
     },
     {
-      "image_path": "inference_test\\images.jpeg",
+      "image_path": "inference_test/images.jpeg",
       "image_filename": "images.jpeg",
-      "is_wound": false,
-      "verification_confidence": 0.2244,
+      "is_wound": true,
+      "verification_confidence": 0.8682,
       "segmentation_percentage": 1.236,
       "segmented_pixels": 810,
       "total_pixels": 65536,
       "segmentation_threshold": 0.5,
-      "verification_threshold": 0.4
+      "verification_threshold": 0.5
     },
     {
-      "image_path": "inference_test\\model-banner-dicasprimeirocachorro-mobile-v1.png",
+      "image_path": "inference_test/model-banner-dicasprimeirocachorro-mobile-v1.png",
       "image_filename": "model-banner-dicasprimeirocachorro-mobile-v1.png",
       "is_wound": false,
-      "verification_confidence": 0.0027,
+      "verification_confidence": 0.2728,
       "segmentation_percentage": 0.293,
       "segmented_pixels": 192,
       "total_pixels": 65536,
       "segmentation_threshold": 0.5,
-      "verification_threshold": 0.4
+      "verification_threshold": 0.5
     }
   ]
 }

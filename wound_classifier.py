@@ -777,11 +777,12 @@ def main() -> None:
             'dropout_rate': dropout_rate
         }
     }
-    
-    with open('wound_classifier_metrics.json', 'w') as f:
+
+    os.makedirs('metrics', exist_ok=True)
+    with open('metrics/wound_classifier_metrics.json', 'w') as f:
         json.dump(final_metrics, f, indent=2)
     
-    print(f"\nFinal metrics saved to: wound_classifier_metrics.json")
+    print(f"\nFinal metrics saved to: metrics/wound_classifier_metrics.json")
     print(f"\nFinal Test Results:")
     print(f"  Accuracy: {final_acc:.2f}%")
     print(f"  Precision: {final_precision:.4f}")
@@ -802,7 +803,7 @@ def main() -> None:
         "test_f1": final_f1
     })
     
-    mlflow.log_artifact("wound_classifier_metrics.json")
+    mlflow.log_artifact("metrics/wound_classifier_metrics.json")
     if os.path.exists("wound_classifier_confusion_matrix.png"):
         mlflow.log_artifact("wound_classifier_confusion_matrix.png")
     if os.path.exists("wound_classifier_best_model.pth"):

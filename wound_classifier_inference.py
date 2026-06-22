@@ -230,10 +230,11 @@ def main() -> None:
     )
     parser.add_argument("--seg_threshold", type=float, default=0.5, help="Segmentation threshold")
     parser.add_argument("--verif_threshold", type=float, default=0.5, help="Verification threshold")
+    os.makedirs('metrics', exist_ok=True)
     parser.add_argument(
         "--output_json",
-        default="inference_results.json",
-        help="Path to output JSON file (default: inference_results.json)"
+        default="metrics/inference_results.json",
+        help="Path to output JSON file (default: metrics/inference_results.json)"
     )
     
     args = parser.parse_args()
